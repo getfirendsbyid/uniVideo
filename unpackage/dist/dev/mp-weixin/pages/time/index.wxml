@@ -1,1 +1,1 @@
-<view><view><nav-bar vue-id="9510b446-1" title="{{title}}" bind:__l="__l"></nav-bar></view><view><time-list vue-id="9510b446-2" bind:__l="__l"></time-list></view></view>
+<view><view><nav-bar vue-id="9510b446-1" title="{{title}}" bind:__l="__l"></nav-bar></view><view><time-list vue-id="9510b446-2" bind:__l="__l"></time-list></view><view><footer vue-id="9510b446-3" bind:__l="__l"></footer></view></view>

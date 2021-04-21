@@ -1,36 +1,17 @@
 <template>
 	<view class="wrap">
-		<u-waterfall v-model="flowList" ref="uWaterfall">
-			<template v-slot:left="{leftList}">
-				<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
-					<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
-					<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-					<view class="demo-title">
-						{{item.title}}
-					</view>
-					<view class="demo-price">
-						{{item.price}}元
-					</view>
-					
+		<u-row gutter="16"  justify="center">
+			<!-- <u-col span="6"  text-align="left"   v-for="(item, index) in list" :key="index">
+				<u-lazy-load  :image="item.src" ></u-lazy-load>
+				<view>123</view>
+			</u-col> -->
+			<u-col span="6" v-for="(item, index) in list" :key="index">
+				<u-lazy-load   :image="item.src"  border-radius="8" ></u-lazy-load>
+					<view class="demo-layout bg-purple"></view>
+			</u-col>
 			
-					
-				</view>
-			</template>
-			
-			<template v-slot:right="{rightList}">
-				<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
-					<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-					<view class="demo-title">
-						{{item.title}}
-					</view>
-					<view class="demo-price">
-						{{item.price}}元
-					</view>
-					
-				</view>
-			</template>
-		</u-waterfall>
-		<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
+		</u-row>
+
 	</view>
 </template>
 
@@ -40,72 +21,18 @@
 			return {
 				loadStatus: 'loadmore',
 				flowList: [],
-				list: [
-					{
-						price: 35,
-						title: '北国风光，千里冰封，万里雪飘',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23327_s.jpg',
+				list: [{
+						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
 					},
 					{
-						price: 75,
-						title: '望长城内外，惟余莽莽',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23325_s.jpg',
+						src: "https://tva3.sinaimg.cn/large/005R6Otmgy1g6d8uftwwvj30a00f0n10.jpg",
 					},
 					{
-						price: 385,
-						title: '大河上下，顿失滔滔',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg',
+						src: "https://tva1.sinaimg.cn/large/0080xEK2ly1gnvpkt0u70j30dw08p0sz.jpg",
 					},
 					{
-						price: 784,
-						title: '欲与天公试比高',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/zzpic23369_s.jpg',
-					},
-					{
-						price: 7891,
-						title: '须晴日，看红装素裹，分外妖娆',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2130_s.jpg',
-					},
-					{
-						price: 2341,
-						shop: '李白杜甫白居易旗舰店',
-						title: '江山如此多娇，引无数英雄竞折腰',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23346_s.jpg',
-					},
-					{
-						price: 661,
-						shop: '李白杜甫白居易旗舰店',
-						title: '惜秦皇汉武，略输文采',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23344_s.jpg',
-					},
-					{
-						price: 1654,
-						title: '唐宗宋祖，稍逊风骚',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-					},
-					{
-						price: 1678,
-						title: '一代天骄，成吉思汗',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-					},
-					{
-						price: 924,
-						title: '只识弯弓射大雕',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-					},
-					{
-						price: 8243,
-						title: '俱往矣，数风流人物，还看今朝',
-						shop: '李白杜甫白居易旗舰店',
-						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
+						// 这里图片不存在，会加载失败，显示错误的占位图
+						src: "https://tva1.sinaimg.cn/large/0080xEK2ly1gp0wh77gacj30dl09ddh5.jpg",
 					},
 				]
 			}
@@ -123,7 +50,7 @@
 		},
 		methods: {
 			addRandomData() {
-				for(let i = 0; i < 10; i++) {
+				for (let i = 0; i < 10; i++) {
 					let index = this.$u.random(0, this.list.length - 1);
 					// 先转成字符串再转成对象，避免数组对象引用导致数据混乱
 					let item = JSON.parse(JSON.stringify(this.list[index]))
@@ -149,69 +76,32 @@
 </style>
 
 <style lang="scss" scoped>
-	.demo-warter {
-		border-radius: 8px;
-		margin: 5px;
-		background-color: #ffffff;
-		padding: 8px;
-		position: relative;
+	.wrap {
+			padding: 24rpx;
+		}
+	.u-lazy-item {
+		border-radius: 8rpx;
 	}
+		.u-row {
+			margin: 40rpx 0;
+			border-radius: 3rpx;
+		}
+		
 	
-	.u-close {
-		position: absolute;
-		top: 32rpx;
-		right: 32rpx;
-	}
+		.demo-layout {
+			height: 80rpx;
+			border-radius: 8rpx;
+		}
 	
-	.demo-image {
-		width: 100%;
-		border-radius: 4px;
-	}
+		.bg-purple {
+			background: #d3dce6;
+		}
 	
-	.demo-title {
-		font-size: 30rpx;
-		margin-top: 5px;
-		color: $u-main-color;
-	}
+		.bg-purple-light {
+			background: #e5e9f2;
+		}
 	
-	.demo-tag {
-		display: flex;
-		margin-top: 5px;
-	}
-	
-	.demo-tag-owner {
-		background-color: $u-type-error;
-		color: #FFFFFF;
-		display: flex;
-		align-items: center;
-		padding: 4rpx 14rpx;
-		border-radius: 50rpx;
-		font-size: 20rpx;
-		line-height: 1;
-	}
-	
-	.demo-tag-text {
-		border: 1px solid $u-type-primary;
-		color: $u-type-primary;
-		margin-left: 10px;
-		border-radius: 50rpx;
-		line-height: 1;
-		padding: 4rpx 14rpx;
-		display: flex;
-		align-items: center;
-		border-radius: 50rpx;
-		font-size: 20rpx;
-	}
-	
-	.demo-price {
-		font-size: 30rpx;
-		color: $u-type-error;
-		margin-top: 5px;
-	}
-	
-	.demo-shop {
-		font-size: 22rpx;
-		color: $u-tips-color;
-		margin-top: 5px;
-	}
+		.bg-purple-dark {
+			background: #99a9bf;
+		}
 </style>

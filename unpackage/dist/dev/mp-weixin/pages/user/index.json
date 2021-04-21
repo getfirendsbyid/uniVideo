@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "31",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav-bar": "/components/common/navBar",
+    "time-list": "/components/common/list/timeList",
+    "footer": "/components/common/footer"
+  }
+}

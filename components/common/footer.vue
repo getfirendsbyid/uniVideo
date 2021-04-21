@@ -25,30 +25,23 @@
 					{
 						iconPath: "https://cdn.uviewui.com/uview/common/min_button.png",
 						selectedIconPath: "https://cdn.uviewui.com/uview/common/min_button_select.png",
-						text: '下载',
+						text: '排行榜',
 						customIcon: false,
-						pagePath: "/pages/login",
+						pagePath: "/pages/rank/index",
 					},
 
 					{
 						iconPath: "account",
 						selectedIconPath: "account-fill",
-						text: '我的',
-						count: 23,
-						isDot: false,
+						text: '我',
 						customIcon: false,
-						pagePath: "",
+						pagePath: "/pages/user/index",
 					},
 				],
 				current: 0
 			}
 		},
 		methods: {
-			beforeSwitch(index) {
-				// 只能切换偶数项
-				if (index % 2 == 0) return true;
-				else return false;
-			},
 			topage(index) {
 				console.log(this.list[index].pagePath)
 				uni.reLaunch({

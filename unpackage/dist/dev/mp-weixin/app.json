@@ -2,14 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/time/index",
-    "pages/login"
+    "pages/login",
+    "pages/rank/index",
+    "pages/user/index"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "智慧案场",
-    "navigationBarBackgroundColor": "#03958C",
-    "backgroundColor": "#03958C"
+    "navigationBarBackgroundColor": "#fb7299",
+    "backgroundColor": "#fb7299"
   },
   "usingComponents": {}
 }

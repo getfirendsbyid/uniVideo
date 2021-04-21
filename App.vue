@@ -5,29 +5,6 @@
 		},
 		onLaunch: function() {
 			console.log('App Launch')
-			// 判断登陆状态
-			// let userInfo = uni.getStorageSync('loginInfo')
-			// if (userInfo) { 
-			// 	if(userInfo.role==5){ // 销售总监视角
-			// 		uni.switchTab({
-			// 			url:'/pages/chiefVisual/expressNews/index/index'
-			// 		})
-			// 	}else if(userInfo.role==4){ // 销售经理视角
-			// 		uni.reLaunch({
-			// 			url:'/pages/salemanagerVisual/case/index'
-			// 		})
-			// 	}else{ // 销售人员视角
-			// 		uni.reLaunch({
-			// 			url:'/pages/salemanVisual/needDeal/index'
-			// 		})
-			// 	}
-			// } else { // 未登陆
-			// 	uni.reLaunch({
-			// 		url: '/pages/login'
-			// 	})
-			// }
-			// var uid = uni.getStorageSync('identityType'); //读取缓存
-			// uni.setStorageSync('identityType', uid ? uid : 1); //设置缓存
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -41,6 +18,7 @@
 <style lang="scss">
 	/* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
 	@import "uview-ui/index.scss";
+	
 	// uview图标大小更改
 	.u-icon__icon{
 		// color: #999!important;

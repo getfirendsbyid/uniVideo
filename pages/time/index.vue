@@ -6,17 +6,22 @@
 		<view>
 			<TimeList></TimeList>
 		</view>
+		<view>
+			<Footer></Footer>
+		</view>
 	</view>
 </template>
 
 <script>
-	import NavBar from "../../components/common/navBar.vue"
-	import TimeList from "../../components/common/list/timeList.vue"
+	import NavBar from "@/components/common/navBar.vue"
+	import Footer from "@/components/common/footer.vue"
+	import TimeList from "@/components/common/list/timeList.vue"
 	
 	export default {
 		components: {
 			NavBar,
 			TimeList,
+			Footer,
 		},
 		
 		data() {

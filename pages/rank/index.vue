@@ -1,0 +1,35 @@
+<template>
+	<view>
+		<view>
+			<NavBar :title="title"></NavBar>
+		</view>
+		<view>
+			<Footer></Footer>
+		</view>
+	</view>
+</template>
+
+<script>
+	import NavBar from "@/components/common/navBar.vue"
+	import Footer from "@/components/common/footer.vue"
+	import TimeList from "@/components/common/list/timeList.vue"
+	export default {
+		components: {
+			NavBar,
+			TimeList,
+			Footer,
+		},
+		data() {
+			return {
+				title: "排行榜"
+			}
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style>
+
+</style>
