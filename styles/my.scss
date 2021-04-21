@@ -1,0 +1,86 @@
+.my{
+		.myInfo{
+			// background-color: #03958C;
+			height: 346rpx;
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			align-items: center;
+			padding: 120rpx 30rpx 0rpx;
+			font-size: 36rpx;
+			color: #fff;
+			position: relative;
+			justify-content: space-between;
+			image{
+				width: 130rpx;
+				height: 130rpx;
+				border-radius: 50%;
+				margin-right: 20rpx;
+			}
+			.infoLeft {
+				display: flex;
+				align-items: center;
+			}
+			.editBox{
+				display: flex;
+				align-items: center;
+				.set {
+					width: 36rpx !important;
+					height: 36rpx !important;
+					background: none !important;
+					border-radius: 0 !important;
+				}
+				text{
+					font-size: 28rpx;
+				}
+			}
+			
+		}
+		.listBox{
+			// width: 750rpx;
+			// position: absolute;
+			// top: 186rpx;
+			// left: 0;
+			// border-radius: 30rpx;
+			// height: auto;
+			// background: #fff;
+			// z-index: 99;
+			.list{
+				padding: 30rpx;
+				border-bottom: 1rpx solid #eee;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 26rpx;
+				view{
+					display: flex;
+					align-items:center;
+					image{
+						width: 48rpx;
+						height: 48rpx;
+						margin-right: 20rpx;
+					}
+				}
+				.icon{
+					margin-right: 10rpx;
+					color: #999!important;
+				}
+			}
+			.list:last-child{
+				border: none;
+			}
+		}
+		.signOut{
+			width: 690rpx;
+			height: 88rpx;
+			line-height: 88rpx;
+			background: #F5F5F5;
+			border-radius: 16rpx;
+			font-size: 26rpx;
+			text-align: center;
+			color: #666;
+			position: fixed;
+			bottom: 200rpx;
+			left: 30rpx;
+		}
+	}

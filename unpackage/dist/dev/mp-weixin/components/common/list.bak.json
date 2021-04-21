@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "list-u-waterfall-left": "/components/common/list-u-waterfall-left",
+    "list-u-waterfall-right": "/components/common/list-u-waterfall-right",
+    "u-waterfall": "/node-modules/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/node-modules/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-loadmore": "/node-modules/uview-ui/components/u-loadmore/u-loadmore"
+  },
+  "component": true
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "header": "/components/common/header",
+    "swiper": "/components/common/swiper",
+    "footer": "/components/common/footer",
+    "video-list": "/components/common/list/homeList"
+  }
+}

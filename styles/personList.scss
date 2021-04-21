@@ -1,0 +1,147 @@
+.person_wrap {
+	height: 100%;
+	padding-top: 20rpx;
+	.personList {
+		margin: 0 30rpx;
+		padding: 30rpx;
+		border-radius: 16rpx;
+		background-color: #fff;
+		margin-bottom: 20rpx;
+		box-shadow: 0px 2px 4px 0px rgba(21, 21, 21, 0.06);
+		.listTop {
+			display: flex;
+			justify-content: space-between;
+			padding-bottom: 20rpx;
+			border-bottom: 1rpx solid #f5f5f5;
+			.listLeft {
+				text-align: left;
+				width: 560rpx;
+				.nameTag {
+					padding-bottom: 20rpx;
+					display: flex;
+					align-items: center;
+
+					text {
+						font-size: 32rpx;
+					}
+					.custname{
+						max-width: 220rpx;
+						white-space:nowrap;
+						overflow:hidden;
+						text-overflow:ellipsis;
+						padding-right: 6rpx;
+					}
+					.tags {
+						min-width: 80rpx;
+						padding: 0 15rpx;
+						height: 40rpx;
+						line-height: 40rpx;
+						text-align: center;
+						border-radius: 4rpx;
+						color: #fff;
+						background-color: #F5B00C;
+						color: #fff;
+						display: inline-block;
+						font-size: 20rpx;
+						margin-left: 12rpx;
+					}
+
+					.bule {
+						background-color: #03958C;
+					}
+					.red {
+						background-color: #EA4918;
+					}
+				}
+				.custMobile{
+					color: #999;
+				}
+			}
+
+			image {
+				width: 48rpx;
+				height: 48rpx;
+			}
+			.moreIcon{
+				width: 48rpx;
+				height: 48rpx;
+				background-size: cover;
+			}
+		}
+
+		.listBottom {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: 20rpx;
+			text {
+				color: #666;
+				font-size: 28rpx;
+			}
+			.bottomType{
+				display: flex;
+				align-items: center;
+				.typeNameTag{
+					font-size: 20rpx;
+					color: #03958C;
+					padding: 8rpx 15rpx;
+					background: #F2F7F7;
+					margin-right: 10rpx;
+					border-radius: 4rpx;
+				}
+				.contentText{
+					max-width: 260rpx;
+					white-space:nowrap;
+					overflow:hidden;
+					text-overflow:ellipsis;
+				}
+			}
+			.time{
+				font-size: 24rpx;
+				color: #999;
+			}
+			.apply{
+				// padding: 10rpx;
+				// border: 1rpx solid #E5EBFB;
+				// border-radius: 8rpx;
+				color: #03958C;
+			}
+			// 催办样式更新
+			.buyTime_box{
+				display: flex;
+				justify-content: space-between;
+				flex: 1;
+				.buyTime_item{
+					display: flex;
+					flex-direction: column;
+					text{
+						font-size: 24rpx;
+						color: #666;
+					}
+					.timeBox{
+						background: #F5F5F5;
+						border-radius: 8rpx;
+						margin-top: 12rpx;
+						padding: 10rpx 22rpx;
+					}
+					.black{
+						color: #333;
+					}
+					.red{
+						color: #EA4918;
+					}
+				}
+				.timeLine{
+					width: 36rpx;
+					height: 1rpx;
+					border: 1rpx solid #E6E6E6;
+					margin-top: 70rpx;
+				}
+			}
+		}
+		.noFlexBottom{
+			display: inline-block!important;
+		}
+	}
+}

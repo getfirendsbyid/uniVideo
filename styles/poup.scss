@@ -1,0 +1,43 @@
+.switch_box{
+	padding: 30rpx;
+	.title{
+		font-size: 32rpx;
+		text-align: center;
+		padding: 20rpx 0;
+	}
+	// .radio_wrap{
+	// 	max-height: 400rpx;
+	// 	overflow-y: scroll;
+	// 	overflow:auto;
+	// 	-webkit-overflow-scrolling : touch;
+	// 	.radioGroup{
+	// 		min-height: calc(100% + 1px);
+	// 	}
+	// }
+	.radioBox{
+		display: flex!important;
+		justify-content: space-between!important;
+		height: 80rpx!important;
+		align-items: center;
+	}
+}
+.footerBtn{
+	display: flex;
+	justify-content: center;
+	margin-top: 30rpx;
+	text{
+		flex: 1;
+		font-size: 32rpx;
+		background-color: #03958C;
+		text-align: center;
+		padding: 20rpx;
+		margin: 0 20rpx;
+		border-radius: 50rpx;
+		color: #fff;
+	}
+	.cancel{
+		background-color: #fff;
+		border: 2rpx solid #e5e5e5;
+		color: #999;
+	}
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,yO;AACAA,UAAU,CAACC,sBAAD,CAAV,C","file":"pages/more/transformRate/transformRate.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/more/transformRate/transformRate.vue'\ncreatePage(Page)"],"sourceRoot":""}

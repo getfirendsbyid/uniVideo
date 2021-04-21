@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,uN;AACAA,UAAU,CAACC,gBAAD,CAAV,C","file":"pages/more/overdue/overdue.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/more/overdue/overdue.vue'\ncreatePage(Page)"],"sourceRoot":""}

@@ -1,0 +1,51 @@
+.ft {
+		height: 120rpx;
+		.tab-box {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			z-index: 2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20rpx 0;
+			width: 750rpx;
+			border-top: 1px solid #eee;
+			background-color: #ffffff;
+		
+			&-item {
+				flex: 1;
+				line-height: 36rpx;
+				font-size: 24rpx;
+				color: #999;
+				text-align: center;
+		
+				.icon {
+					width: 48rpx !important;
+					height: 48rpx !important;
+					text-align: center;
+					background-size: cover;
+					background-position: center center;
+					margin: 0 auto;
+		
+					&::before {
+						color: #999;
+					}
+				}
+		
+				.name {
+					// margin-top: 8rpx;
+				}
+		
+				&.active {
+					color: #03958C;
+		
+					.icon {
+						&::before {
+							color: #03958C;
+						}
+					}
+				}
+			}
+		}
+	}

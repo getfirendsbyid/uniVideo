@@ -1,0 +1,44 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/time/index",
+			"style": {
+				"navigationBarTitleText": "时刻表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		}
+       
+    ],
+
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "智慧案场",
+		"navigationBarBackgroundColor": "#03958C",
+		"backgroundColor": "#03958C",
+		// // #ifdef H5
+		// "navigationStyle":"custom",
+		// // #endif
+		"app-plus": { //app平台
+			"bounce": "none" //禁止滚动
+		}
+	}
+	
+}

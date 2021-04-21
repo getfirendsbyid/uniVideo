@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,gI;AACAA,UAAU,CAACC,oBAAD,CAAV,C","file":"pages/chiefVisual/more/approvalDet/approvalDet.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/chiefVisual/more/approvalDet/approvalDet.vue'\ncreatePage(Page)"],"sourceRoot":""}

@@ -1,0 +1,1 @@
+<u-tabbar vue-id="01bcedf2-1" list="{{list}}" active-color="#03958C" inactive-color="#A8A8A8" data-event-opts="{{[['^change',[['topage']]]]}}" bind:change="__e" bind:__l="__l"></u-tabbar>
