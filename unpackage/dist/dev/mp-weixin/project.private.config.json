@@ -29,6 +29,11 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "时刻表",
+          "pathName": "pages/time/index",
+          "scene": null
         }
       ]
     }

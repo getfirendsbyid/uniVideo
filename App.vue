@@ -18,7 +18,9 @@
 <style lang="scss">
 	/* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
 	@import "uview-ui/index.scss";
-	
+	backgroundColor{
+		background-color: $uni-theme;
+	}
 	// uview图标大小更改
 	.u-icon__icon{
 		// color: #999!important;
@@ -43,7 +45,7 @@
 	}
 	// tab页公共样式
 	.expressGray_box{
-		background-color: #f6f6f6!important;
+		background-color: #e7e7e7!important;
 		margin-top: 0!important;
 	}
 	.express_box {
@@ -95,8 +97,8 @@
 		position: fixed;
 		bottom: 40rpx;
 		left: 95rpx;
-		color: #fff;
-		background: linear-gradient(90deg, #03958C, #00AE66);
+		color: #e7e7e7;
+		background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
 		z-index: 2;
 		border-radius: 44rpx;
 	}
@@ -111,8 +113,8 @@
 		position: fixed;
 		z-index: 99;
 		bottom: 40rpx;
-		color: #fff;
-		// background: linear-gradient(90deg, #03958C, #00AE66);
+		color: #e7e7e7;
+		// background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
 		display: flex;
 
 		text {

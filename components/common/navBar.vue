@@ -1,6 +1,6 @@
 <template>
-	<view>
-		<u-navbar :is-back="false"  :title="title" >
+	<view class="navBar">
+		<u-navbar :is-back="isBack" :is-fixed="isFixed" :back-icon-color="backIconColor" title-size="titleSize" :title-color="titleColor" :titleBold="titleBold" :title="title" :background="background" >
 			<view class="slot-wrap">
 				
 			</view>
@@ -17,6 +17,11 @@
 		    },
 		data() {
 			return {
+				isBack:true,
+				titleColor:"#fff",
+				isFixed:true,
+				titleSize:30,
+				backIconColor:"#fff",
 				list: [{
 					name: '十年'
 				}, {
@@ -36,6 +41,9 @@
 </script>
 
 <style scoped lang="scss">
+	.navBar{
+		background-color: $uni-theme;
+	}
 	.slot-wrap {
 		display: flex;
 		align-items: center;

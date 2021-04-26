@@ -7875,9 +7875,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!**************************************!*\
-  !*** D:/WebCode/uniVideo/pages.json ***!
-  \**************************************/
+/*!***********************************!*\
+  !*** D:/webCode/video/pages.json ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8018,9 +8018,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!**********************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/index.js ***!
-  \**********************************************************/
+/*!*******************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/index.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8169,9 +8169,9 @@ var install = function install(Vue) {
 
 /***/ }),
 /* 12 */
-/*!*********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/mixin/mixin.js ***!
-  \*********************************************************************/
+/*!******************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/mixin/mixin.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8242,9 +8242,9 @@ var install = function install(Vue) {
 
 /***/ }),
 /* 13 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/request/index.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/request/index.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8422,9 +8422,9 @@ new Request();exports.default = _default;
 
 /***/ }),
 /* 14 */
-/*!****************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/deepMerge.js ***!
-  \****************************************************************************/
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepMerge.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8462,9 +8462,9 @@ deepMerge;exports.default = _default;
 
 /***/ }),
 /* 15 */
-/*!****************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/deepClone.js ***!
-  \****************************************************************************/
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepClone.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8495,9 +8495,9 @@ deepClone;exports.default = _default;
 
 /***/ }),
 /* 16 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/test.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/test.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8736,9 +8736,9 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 
 /***/ }),
 /* 17 */
-/*!******************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/queryParams.js ***!
-  \******************************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/queryParams.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8804,17 +8804,17 @@ queryParams;exports.default = _default;
 
 /***/ }),
 /* 18 */
-/*!************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/route.js ***!
-  \************************************************************************/
+/*!*********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/route.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */var
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
 
 Router = /*#__PURE__*/function () {
   function Router() {_classCallCheck(this, Router);
@@ -9725,9 +9725,9 @@ if (hadRuntime) {
 
 /***/ }),
 /* 22 */
-/*!*****************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/timeFormat.js ***!
-  \*****************************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/timeFormat.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9786,9 +9786,9 @@ timeFormat;exports.default = _default;
 
 /***/ }),
 /* 23 */
-/*!***************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/timeFrom.js ***!
-  \***************************************************************************/
+/*!************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/timeFrom.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9843,9 +9843,9 @@ timeFrom;exports.default = _default;
 
 /***/ }),
 /* 24 */
-/*!********************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/colorGradient.js ***!
-  \********************************************************************************/
+/*!*****************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/colorGradient.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9986,9 +9986,9 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 
 /***/ }),
 /* 25 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/guid.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/guid.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10037,9 +10037,9 @@ guid;exports.default = _default;
 
 /***/ }),
 /* 26 */
-/*!************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/color.js ***!
-  \************************************************************************/
+/*!*********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/color.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10084,9 +10084,9 @@ color;exports.default = _default;
 
 /***/ }),
 /* 27 */
-/*!****************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/type2icon.js ***!
-  \****************************************************************************/
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/type2icon.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10129,9 +10129,9 @@ type2icon;exports.default = _default;
 
 /***/ }),
 /* 28 */
-/*!******************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/randomArray.js ***!
-  \******************************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/randomArray.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10146,9 +10146,9 @@ randomArray;exports.default = _default;
 
 /***/ }),
 /* 29 */
-/*!**************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/addUnit.js ***!
-  \**************************************************************************/
+/*!***********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/addUnit.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10164,9 +10164,9 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 
 /***/ }),
 /* 30 */
-/*!*************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/random.js ***!
-  \*************************************************************************/
+/*!**********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/random.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10184,9 +10184,9 @@ random;exports.default = _default;
 
 /***/ }),
 /* 31 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/trim.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/trim.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10209,9 +10209,9 @@ trim;exports.default = _default;
 
 /***/ }),
 /* 32 */
-/*!************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/toast.js ***!
-  \************************************************************************/
+/*!*********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/toast.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10229,9 +10229,9 @@ toast;exports.default = _default;
 
 /***/ }),
 /* 33 */
-/*!****************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/getParent.js ***!
-  \****************************************************************************/
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/getParent.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10286,9 +10286,9 @@ function getParent(name, keys) {
 
 /***/ }),
 /* 34 */
-/*!**************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/$parent.js ***!
-  \**************************************************************************/
+/*!***********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/$parent.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10314,9 +10314,9 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 
 /***/ }),
 /* 35 */
-/*!**********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/sys.js ***!
-  \**********************************************************************/
+/*!*******************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/sys.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10332,9 +10332,9 @@ function sys() {
 
 /***/ }),
 /* 36 */
-/*!***************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/debounce.js ***!
-  \***************************************************************************/
+/*!************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/debounce.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10371,9 +10371,9 @@ debounce;exports.default = _default;
 
 /***/ }),
 /* 37 */
-/*!***************************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/function/throttle.js ***!
-  \***************************************************************************/
+/*!************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/throttle.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10413,9 +10413,9 @@ throttle;exports.default = _default;
 
 /***/ }),
 /* 38 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/config/config.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/config/config.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10436,9 +10436,9 @@ var version = '1.8.3';var _default =
 
 /***/ }),
 /* 39 */
-/*!***********************************************************************!*\
-  !*** D:/WebCode/uniVideo/node_modules/uview-ui/libs/config/zIndex.js ***!
-  \***********************************************************************/
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/config/zIndex.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10483,9 +10483,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 56 */,
 /* 57 */,
 /* 58 */
-/*!***************************************************!*\
-  !*** D:/WebCode/uniVideo/static/img/loginBg1.png ***!
-  \***************************************************/
+/*!************************************************!*\
+  !*** D:/webCode/video/static/img/loginBg1.png ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10493,9 +10493,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ8AAADwCAYAAAAe
 
 /***/ }),
 /* 59 */
-/*!***************************************************!*\
-  !*** D:/WebCode/uniVideo/static/img/loginBg2.png ***!
-  \***************************************************/
+/*!************************************************!*\
+  !*** D:/webCode/video/static/img/loginBg2.png ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10503,9 +10503,9 @@ module.exports = "/static/img/loginBg2.png";
 
 /***/ }),
 /* 60 */
-/*!****************************************************!*\
-  !*** D:/WebCode/uniVideo/static/moreIcon/myBg.png ***!
-  \****************************************************/
+/*!*************************************************!*\
+  !*** D:/webCode/video/static/moreIcon/myBg.png ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10513,9 +10513,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAFaCAYAAABB
 
 /***/ }),
 /* 61 */
-/*!**********************************************!*\
-  !*** D:/WebCode/uniVideo/utils/httpUtils.js ***!
-  \**********************************************/
+/*!*******************************************!*\
+  !*** D:/webCode/video/utils/httpUtils.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10779,9 +10779,9 @@ module.exports = {
 
 /***/ }),
 /* 62 */
-/*!*******************************************!*\
-  !*** D:/WebCode/uniVideo/utils/config.js ***!
-  \*******************************************/
+/*!****************************************!*\
+  !*** D:/webCode/video/utils/config.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10804,9 +10804,9 @@ module.exports = {
 
 /***/ }),
 /* 63 */
-/*!******************************************!*\
-  !*** D:/WebCode/uniVideo/utils/tools.js ***!
-  \******************************************/
+/*!***************************************!*\
+  !*** D:/webCode/video/utils/tools.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10896,9 +10896,9 @@ module.exports = {
 /* 81 */,
 /* 82 */,
 /* 83 */
-/*!*************************************************!*\
-  !*** D:/WebCode/uniVideo/assets/img/avatar.jpg ***!
-  \*************************************************/
+/*!**********************************************!*\
+  !*** D:/webCode/video/assets/img/avatar.jpg ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

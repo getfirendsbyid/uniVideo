@@ -3,6 +3,7 @@
 		<view>
 			<NavBar :title="title"></NavBar>
 		</view>
+		<u-image width="100%" height="300rpx" :src="userCenterBG"></u-image>
 		<view>
 			<Footer></Footer>
 		</view>
@@ -22,6 +23,8 @@
 		data() {
 			return {
 				title: "用户中心",
+				userCenterBG:"../assets/img/avatar.jpg",
+				
 			}
 		},
 		methods: {

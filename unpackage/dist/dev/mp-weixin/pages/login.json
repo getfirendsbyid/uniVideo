@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "登录",
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "usingComponents": {
+    "u-image": "/node-modules/uview-ui/components/u-image/u-image",
+    "nav-bar": "/components/common/navBar"
+  }
 }

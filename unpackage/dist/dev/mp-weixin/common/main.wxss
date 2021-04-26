@@ -3327,6 +3327,9 @@ u-dropdown {
 
 
 /* end-头条小程序编译后页面有组件名的元素，特别处理--end */
+backgroundColor {
+  background-color: #fb7299;
+}
 .uicon-search::before {
   font-size: 28rpx !important;
 }
@@ -3344,7 +3347,7 @@ input {
   font-size: 28rpx;
 }
 .expressGray_box {
-  background-color: #f6f6f6 !important;
+  background-color: #e7e7e7 !important;
   margin-top: 0 !important;
 }
 .express_box .echartsTop {
@@ -3399,10 +3402,10 @@ input {
   position: fixed;
   bottom: 40rpx;
   left: 95rpx;
-  color: #fff;
-  background: -webkit-gradient(linear, left top, right top, from(#03958C), to(#00AE66));
-  background: -webkit-linear-gradient(left, #03958C, #00AE66);
-  background: linear-gradient(90deg, #03958C, #00AE66);
+  color: #e7e7e7;
+  background: -webkit-gradient(linear, left top, right top, from(#e7e7e7), to(#e7e7e7));
+  background: -webkit-linear-gradient(left, #e7e7e7, #e7e7e7);
+  background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
   z-index: 2;
   -webkit-border-radius: 44rpx;
           border-radius: 44rpx;
@@ -3416,7 +3419,7 @@ input {
   position: fixed;
   z-index: 99;
   bottom: 40rpx;
-  color: #fff;
+  color: #e7e7e7;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;

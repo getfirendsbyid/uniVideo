@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view>
-			<NavBar :title="title"></NavBar>
+			<Header></Header>
 		</view>
 		<view>
 			<Footer></Footer>
@@ -10,18 +10,18 @@
 </template>
 
 <script>
-	import NavBar from "@/components/common/navBar.vue"
+	import Header from "@/components/common/header.vue"
 	import Footer from "@/components/common/footer.vue"
 	import TimeList from "@/components/common/list/timeList.vue"
 	export default {
 		components: {
-			NavBar,
+			Header,
 			TimeList,
 			Footer,
 		},
 		data() {
 			return {
-				title: "排行榜"
+				title: "分类"
 			}
 		},
 		methods: {

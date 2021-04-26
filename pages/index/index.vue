@@ -10,9 +10,11 @@
 			<videoList></videoList>
 		</view>
 		<view>
+			<backTop></backTop>
+		</view>
+		<view>
 			<Footer></Footer>
 		</view>
-
 	</view>
 </template>
 
@@ -20,23 +22,25 @@
 	import Header from '@/components/common/header.vue'
 	import Footer from '@/components/common/footer.vue'
 	import Swiper from '@/components/common/swiper.vue'
-	import videoList from '@/components/common/list/homeList.vue'
+	import backTop from '@/components/common/backTop.vue'
+	import videoList from '@/components/common/list/videoList.vue'
 	export default {
-
-		data() {
-			return {
-
-			}
-		},
-		methods: {
-
-		},
 		components: {
 			Header,
 			Swiper,
 			Footer,
 			videoList,
-		}
+			backTop,
+		},
+		data() {
+			return {
+				
+			}
+		},
+		methods: {
+			
+		},
+
 	}
 </script>
 

@@ -2,7 +2,7 @@
   "navigationBarTitleText": "时刻表",
   "navigationStyle": "custom",
   "usingComponents": {
-    "nav-bar": "/components/common/navBar",
+    "header": "/components/common/header",
     "time-list": "/components/common/list/timeList",
     "footer": "/components/common/footer"
   }

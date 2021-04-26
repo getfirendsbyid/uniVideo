@@ -3,15 +3,16 @@
     "pages/index/index",
     "pages/time/index",
     "pages/login",
-    "pages/rank/index",
-    "pages/user/index"
+    "pages/classify/index",
+    "pages/user/index",
+    "pages/register"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "智慧案场",
+    "navigationBarTitleText": "video",
     "navigationBarBackgroundColor": "#fb7299",
-    "backgroundColor": "#fb7299"
+    "backgroundColor": "#e7e7e7"
   },
   "usingComponents": {}
 }
