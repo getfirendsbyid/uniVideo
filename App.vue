@@ -54,7 +54,6 @@
 			align-items: center;
 			justify-content: space-between;
 			margin-bottom: 10rpx;
-
 			.dropWrap {
 				width: 80rpx;
 

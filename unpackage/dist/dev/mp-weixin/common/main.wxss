@@ -59,8 +59,7 @@ image {
 }
 view,
 text {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .u-font-xs {
   font-size: 22rpx;
@@ -3173,8 +3172,7 @@ page {
   left: 0;
   top: 0;
   pointer-events: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   width: 199.8%;
@@ -3403,12 +3401,10 @@ input {
   bottom: 40rpx;
   left: 95rpx;
   color: #e7e7e7;
-  background: -webkit-gradient(linear, left top, right top, from(#e7e7e7), to(#e7e7e7));
   background: -webkit-linear-gradient(left, #e7e7e7, #e7e7e7);
   background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
   z-index: 2;
-  -webkit-border-radius: 44rpx;
-          border-radius: 44rpx;
+  border-radius: 44rpx;
 }
 .footer_flex {
   width: 100%;
@@ -3429,9 +3425,7 @@ input {
   -webkit-flex: 1;
           flex: 1;
   margin: 0 20rpx;
-  -webkit-border-radius: 44rpx;
-          border-radius: 44rpx;
-  background: -webkit-gradient(linear, left top, right top, from(#03958C), to(#00AE66));
+  border-radius: 44rpx;
   background: -webkit-linear-gradient(left, #03958C, #00AE66);
   background: linear-gradient(90deg, #03958C, #00AE66);
 }
@@ -3460,15 +3454,13 @@ input {
   background: #E6E6E6;
   color: #666;
   margin: 0 20rpx;
-  -webkit-border-radius: 38rpx;
-          border-radius: 38rpx;
+  border-radius: 38rpx;
   font-size: 24rpx;
   width: 200rpx;
 }
 .footer_three .footerRight {
   width: 480rpx;
-  -webkit-border-radius: 36rpx;
-          border-radius: 36rpx;
+  border-radius: 36rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -3482,8 +3474,7 @@ input {
 }
 .footer_three .footerRight .green {
   background-color: #03958C;
-  -webkit-border-radius: 0rpx 36rpx 36rpx 0rpx;
-          border-radius: 0rpx 36rpx 36rpx 0rpx;
+  border-radius: 0rpx 36rpx 36rpx 0rpx;
 }
 .paddingBottom {
   padding-bottom: 100rpx;

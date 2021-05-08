@@ -94,7 +94,7 @@ var components
 try {
   components = {
     uImage: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-image/u-image */ "node-modules/uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! uview-ui/components/u-image/u-image.vue */ 147))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-image/u-image */ "node-modules/uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! uview-ui/components/u-image/u-image.vue */ 127))
     }
   }
 } catch (e) {
@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/common/footer */ "components/common/footer").then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 119));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/common/footer */ "components/common/footer").then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 94));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 120));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -177,7 +177,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     return {
       title: "用户中心",
       userCenterBG: "../assets/img/avatar.jpg" };
-
 
   },
   methods: {} };exports.default = _default;

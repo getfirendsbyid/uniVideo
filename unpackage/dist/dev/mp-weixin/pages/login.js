@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uImage: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-image/u-image */ "node-modules/uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! uview-ui/components/u-image/u-image.vue */ 147))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-image/u-image */ "node-modules/uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! uview-ui/components/u-image/u-image.vue */ 127))
     }
   }
 } catch (e) {
@@ -181,6 +181,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
 var _loginBg = _interopRequireDefault(__webpack_require__(/*! @/static/img/loginBg1.png */ 58));
 var _loginBg2 = _interopRequireDefault(__webpack_require__(/*! @/static/img/loginBg2.png */ 59));
 var _myBg = _interopRequireDefault(__webpack_require__(/*! @/static/moreIcon/myBg.png */ 60));
@@ -212,26 +222,29 @@ var _tools = _interopRequireDefault(__webpack_require__(/*! @/utils/tools.js */ 
 //
 //
 //
-var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { NavBar: NavBar }, data: function data() {return { title: "登录", loginImgSrc: _loginBg2.default, form: { loginAccount: '', // 账号
-        password: '' // 密码
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { NavBar: NavBar }, data: function data() {return { title: "登录", loginImgSrc: _loginBg2.default, form: { loginAccount: "", // 账号
+        password: "" // 密码
       }, loginBg: _loginBg.default, loginBg2: _loginBg2.default };}, methods: { // 登录成功跳转至页面
-    goPage: function goPage() {if (!this.form.loginAccount) {_tools.default.showErrorToast('账号不能为空');return;}if (!this.form.password) {_tools.default.showErrorToast('密码不能为空');return;}_tools.default.showLoading('登录中');
-      _httpUtils.default.sendHttpRequest('1002', Object.assign({}, this.form), function (res) {
-        _tools.default.hideLoading();
-        if (res.data.code == '0') {
-          uni.setStorageSync('loginInfo', res.data.data);
-          uni.setStorageSync('nowIdentity', res.data.data.role);
-          if (res.data.data.role == 5) {// 销售总监视角
+    goPage: function goPage() {if (!this.form.loginAccount) {_tools.default.showErrorToast("账号不能为空");return;}if (!this.form.password) {_tools.default.showErrorToast("密码不能为空");return;}_tools.default.showLoading("登录中");_httpUtils.default.sendHttpRequest("1002", Object.assign({}, this.form), function (res) {_tools.default.hideLoading();if (res.data.code == "0") {uni.setStorageSync("loginInfo", res.data.data);uni.setStorageSync("nowIdentity", res.data.data.role);if (res.data.data.role == 5) {// 销售总监视角
+            uni.reLaunch({ url: "/pages/chiefVisual/expressNews/index/index" });} else if (res.data.data.role == 4) {
+            // 销售经理视角
             uni.reLaunch({
-              url: '/pages/chiefVisual/expressNews/index/index' });
+              url: "/pages/salemanagerVisual/case/index" });
 
-          } else if (res.data.data.role == 4) {// 销售经理视角
+          } else {
+            // 销售人员视角
             uni.reLaunch({
-              url: '/pages/salemanagerVisual/case/index' });
-
-          } else {// 销售人员视角
-            uni.reLaunch({
-              url: '/pages/salemanVisual/needDeal/index' });
+              url: "/pages/salemanVisual/needDeal/index" });
 
           }
         }
@@ -239,7 +252,7 @@ var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | compo
     },
     goRegister: function goRegister() {
       uni.reLaunch({
-        url: '/pages/register' });
+        url: "/pages/register" });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -24,7 +24,6 @@
 			return {
 				title: "用户中心",
 				userCenterBG:"../assets/img/avatar.jpg",
-				
 			}
 		},
 		methods: {

@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Header = function Header() {Promise.all(/*! require.ensure | components/common/header */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/header")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/header.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/common/footer */ "components/common/footer").then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 119));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Header = function Header() {Promise.all(/*! require.ensure | components/common/header */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/header")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/header.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/common/footer */ "components/common/footer").then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 94));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 120));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -158,12 +158,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     return {
       isScroll: true,
       title: "时刻表",
-      list: [{
-        name: '十年' },
+      list: [
       {
-        name: '青春' },
+        name: "十年" },
+
       {
-        name: '之约' }],
+        name: "青春" },
+
+      {
+        name: "之约" }],
+
 
       // 因为内部的滑动机制限制，请将tabs组件和swiper组件的current用不同变量赋值
       current: 0, // tabs组件的current值，表示当前活动的tab选项
@@ -189,9 +193,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.current = current;
     },
     // scroll-view到底部加载更多
-    onreachBottom: function onreachBottom() {
-
-    } } };exports.default = _default;
+    onreachBottom: function onreachBottom() {} } };exports.default = _default;
 
 /***/ })
 
