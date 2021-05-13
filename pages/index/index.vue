@@ -44,6 +44,9 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+	.tip{
+		padding-left: 24rpx;
+		font-weight: 900;
+	}
 </style>

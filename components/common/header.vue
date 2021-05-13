@@ -1,30 +1,11 @@
 <template>
 	<view>
-			<u-navbar :is-back="isBack" :background="background" :slot="slot">
-				<u-row gutter="16">
-				<view class="slot-wrap">
-					<u-col span="2">
-						<!-- logo -->
-						<view class="demo-layout bg-purple">
-							<u-image width="100%" height="300rpx" :src="logoUrl"></u-image>
-						</view>
-					</u-col>
-					<u-col span="12">
-						<!-- search -->
-						<u-search placeholder="" :shape="shape" :show-action="showAction" @click="goPage()" v-model="keyword">
-						</u-search>
-					</u-col>
-					<u-col span="2">
-						<!-- avator -->
-						<view class="demo-layout bg-purple-dark">
-							<u-avatar :src="avatarUrl"></u-avatar>
-						</view>
-					</u-col>
-				</view>
-				</u-row>
-			</u-navbar>
-		<view class="content">
-		</view>
+		<u-navbar :is-back="isBack" :background="background" :slot="slot">
+			<view class="slot-wrap">
+				<u-search placeholder="" :shape="shape" :show-action="showAction" @click="goPage" v-model="keyword">
+				</u-search>
+			</view>
+		</u-navbar>
 	</view>
 </template>
 
@@ -32,13 +13,13 @@
 	import avatarUrl from "@/assets/img/avatar.jpg";
 	import logoUrl from "@/assets/img/avatar.jpg";
 	export default {
-		name: "header",
+
 		data() {
 			return {
 				showAction: false,
 				isBack: false,
 				shape: "square",
-				slot:"right",
+				slot: "right",
 				logoUrl: logoUrl,
 				avatarUrl: avatarUrl,
 				background: {
@@ -47,9 +28,11 @@
 				},
 			};
 		},
-		methods:{
-			goPage:function(){
-				
+		methods: {
+			goPage: function() {
+				uni.reLaunch({
+					url: "/pages/search/search",
+				});
 			}
 		}
 	}
@@ -57,7 +40,13 @@
 
 <style scoped lang="scss">
 	.slot-wrap {
+		padding-left: 24rpx;
+		padding-right: 24rpx;
 		display: flex;
+		flex: 1;
+		justify-content: space-between;
+		padding-left: 36rpx;
+		padding-right: 36rpx;
 		align-items: center;
 		/* 如果您想让slot内容占满整个导航栏的宽度 */
 		/* flex: 1; */

@@ -21,8 +21,6 @@
 						<view class="grid-text">沙漏</view>
 					</u-grid-item>
 				</u-grid>
-				
-					
 		</view>
 		
 		<view>
@@ -48,7 +46,7 @@
 			}
 		},
 		methods: {
-
+			
 		}
 	}
 </script>

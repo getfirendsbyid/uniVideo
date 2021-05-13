@@ -1,5 +1,6 @@
 <template>
 	<view class="wrap">
+		<view >系列推荐</view>
 		<u-row  justify="center">
 			<u-col span="4" v-for="(item, index) in list" :key="index">
 				<u-lazy-load :image="item.src" border-radius="8"></u-lazy-load>
@@ -157,7 +158,8 @@
 
 <style lang="scss" scoped>
 	.wrap {
-		padding: 24rpx;
+		padding-left: 24rpx;
+		padding-right: 24rpx;
 		.u-lazy-item {
 			border-radius: 8rpx;
 		}
@@ -166,11 +168,13 @@
 			border-radius: 8rpx;
 		}
 		.u-row {
-			margin-top: 100rpx;
 			border-radius: 3rpx;
 		}
 		.u-col {
 			border-radius: 3rpx;
+		}
+		.tip{
+			
 		}
 	}
 </style>
