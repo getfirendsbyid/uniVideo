@@ -30,7 +30,11 @@
 			"path": "pages/classify/index",
 			"style": {
 				"navigationBarTitleText": "分类",
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+				// 手机端隐藏滚动条，保留滚动效果
+				"scrollIndicator": "none"
+			}
 			}
 
 		}, {
@@ -47,7 +51,15 @@
 				"navigationStyle": "custom"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "navigationStyle": "custom"
+            }
+        }
+    ],
 
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

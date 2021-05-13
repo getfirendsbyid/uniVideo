@@ -19,7 +19,7 @@
           "scene": null
         },
         {
-          "name": "pages/login",
+          "name": "登录",
           "pathName": "pages/login",
           "query": "",
           "scene": null
@@ -33,6 +33,25 @@
         {
           "name": "时刻表",
           "pathName": "pages/time/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/search/search",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分类",
+          "pathName": "pages/classify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "注册",
+          "pathName": "pages/index/index",
+          "query": "",
           "scene": null
         }
       ]

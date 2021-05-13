@@ -93,29 +93,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
-try {
-  components = {
-    uImage: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-image/u-image */ "node-modules/uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! uview-ui/components/u-image/u-image.vue */ 127))
-    }
-  }
-} catch (e) {
-  if (
-    e.message.indexOf("Cannot find module") !== -1 &&
-    e.message.indexOf(".vue") !== -1
-  ) {
-    console.error(e.message)
-    console.error("1. 排查组件名称拼写是否正确")
-    console.error(
-      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
-    )
-    console.error(
-      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
-    )
-  } else {
-    throw e
-  }
-}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -153,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -186,75 +163,71 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+{
+  components: {
+    NavBar: NavBar },
 
+  data: function data() {
+    return {
+      title: "登录",
+      form: {
+        username: "", // 账号
+        password: "", // 密码
+        code: "",
+        cToken: "" },
 
+      captchaImg: "" };
 
+  },
+  methods: {
+    // 登录成功跳转至页面
+    login: function login() {
+      if (!this.form.loginAccount) {
+        Tools.showErrorToast("账号不能为空");
+        return;
+      }
+      if (!this.form.password) {
+        Tools.showErrorToast("密码不能为空");
+        return;
+      }
+      Tools.showLoading("登录中");
+      this.$api.login(this.form).
+      then(function (res) {
+        Tools.hideLoading();
+        if (res.code && res.code == 0) {
+          uni.reLaunch({
+            url: "/page/user/index" });
 
-
-var _loginBg = _interopRequireDefault(__webpack_require__(/*! @/static/img/loginBg1.png */ 58));
-var _loginBg2 = _interopRequireDefault(__webpack_require__(/*! @/static/img/loginBg2.png */ 59));
-var _myBg = _interopRequireDefault(__webpack_require__(/*! @/static/moreIcon/myBg.png */ 60));
-var _httpUtils = _interopRequireDefault(__webpack_require__(/*! @/utils/httpUtils.js */ 61));
-var _tools = _interopRequireDefault(__webpack_require__(/*! @/utils/tools.js */ 63));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var NavBar = function NavBar() {__webpack_require__.e(/*! require.ensure | components/common/navBar */ "components/common/navBar").then((function () {return resolve(__webpack_require__(/*! @/components/common/navBar.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { NavBar: NavBar }, data: function data() {return { title: "登录", loginImgSrc: _loginBg2.default, form: { loginAccount: "", // 账号
-        password: "" // 密码
-      }, loginBg: _loginBg.default, loginBg2: _loginBg2.default };}, methods: { // 登录成功跳转至页面
-    goPage: function goPage() {if (!this.form.loginAccount) {_tools.default.showErrorToast("账号不能为空");return;}if (!this.form.password) {_tools.default.showErrorToast("密码不能为空");return;}_tools.default.showLoading("登录中");_httpUtils.default.sendHttpRequest("1002", Object.assign({}, this.form), function (res) {_tools.default.hideLoading();if (res.data.code == "0") {uni.setStorageSync("loginInfo", res.data.data);uni.setStorageSync("nowIdentity", res.data.data.role);if (res.data.data.role == 5) {// 销售总监视角
-            uni.reLaunch({ url: "/pages/chiefVisual/expressNews/index/index" });} else if (res.data.data.role == 4) {
-            // 销售经理视角
-            uni.reLaunch({
-              url: "/pages/salemanagerVisual/case/index" });
-
-          } else {
-            // 销售人员视角
-            uni.reLaunch({
-              url: "/pages/salemanVisual/needDeal/index" });
-
-          }
+        } else {
+          Tools.showErrorToast(res.msg);
         }
+      }).catch(function (res) {
+        // 失败进行的操作
+        console.log(res.msg);
       });
     },
-    goRegister: function goRegister() {
+    toRegister: function toRegister() {
       uni.reLaunch({
         url: "/pages/register" });
 
-    } } };exports.default = _default;
+    },
+    getCaptcha: function getCaptcha() {var _this = this;
+      this.$api.getCaptcha().then(function (res) {
+        Tools.hideLoading();
+        if (res.code && res.code == 0) {
+          _this.captchaImg = res.data.img;
+          _this.cToken = res.data.cToken;
+        } else {
+          Tools.showErrorToast(res.msg);
+        }
+      }).catch(function (res) {
+        Tools.showErrorToast(res.msg);
+      });
+    } },
+
+  mounted: function mounted() {
+    this.getCaptcha(); //获取验证码
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1869,7 +1869,1075 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 10:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 11:
+/*!*******************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 12));
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 13));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 17));
+
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 18));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 22));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 23));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 24));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 25));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 26));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 27));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 28));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 15));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 14));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 29));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 16));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 30));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 31));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 32));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 33));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 34));
+
+
+
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 35);
+
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 36));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 37));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 38));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 39));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+// 引入关于是否mixin集成小程序分享的配置
+// import wxshare from './libs/mixin/mpShare.js'
+// 全局挂载引入http相关请求拦截插件
+function wranning(str) {// 开发环境进行信息输出,主要是一些报错信息
+  // 这个环境的来由是在程序编写时候,点击hx编辑器运行调试代码的时候,详见:
+  // 	https://uniapp.dcloud.io/frame?id=%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%92%8c%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83
+  if (true) {console.warn(str);}} // 尝试判断在根目录的/store中是否有$u.mixin.js，此文件uView默认为需要挂在到全局的vuex的state变量
+// HX2.6.11版本,放到try中,控制台依然会警告,暂时不用此方式，
+// let vuexStore = {};
+// try {
+// 	vuexStore = require("@/store/$u.mixin.js");
+// } catch (e) {
+// 	//TODO handle the exception
+// }
+// post类型对象参数转为get类型url参数
+var $u = { queryParams: _queryParams.default, route: _route.default, timeFormat: _timeFormat.default, date: _timeFormat.default, // 另名date
+  timeFrom: _timeFrom.default, colorGradient: _colorGradient.default.colorGradient, colorToRgba: _colorGradient.default.colorToRgba, guid: _guid.default, color: _color.default, sys: _sys.sys, os: _sys.os, type2icon: _type2icon.default, randomArray: _randomArray.default, wranning: wranning, get: _request.default.get,
+  post: _request.default.post,
+  put: _request.default.put,
+  'delete': _request.default.delete,
+  hexToRgb: _colorGradient.default.hexToRgb,
+  rgbToHex: _colorGradient.default.rgbToHex,
+  test: _test.default,
+  random: _random.default,
+  deepClone: _deepClone.default,
+  deepMerge: _deepMerge.default,
+  getParent: _getParent.default,
+  $parent: _$parent.default,
+  addUnit: _addUnit.default,
+  trim: _trim.default,
+  type: ['primary', 'success', 'error', 'warning', 'info'],
+  http: _request.default,
+  toast: _toast.default,
+  config: _config.default, // uView配置信息相关，比如版本号
+  zIndex: _zIndex.default,
+  debounce: _debounce.default,
+  throttle: _throttle.default };
+
+
+// $u挂载到uni对象上
+uni.$u = $u;
+
+var install = function install(Vue) {
+  Vue.mixin(_mixin.default);
+  if (Vue.prototype.openShare) {
+    Vue.mixin(mpShare);
+  }
+  // Vue.mixin(vuexStore);
+  // 时间格式化，同时两个名称，date和timeFormat
+  Vue.filter('timeFormat', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  Vue.filter('date', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  // 将多久以前的方法，注入到全局过滤器
+  Vue.filter('timeFrom', function (timestamp, format) {
+    return (0, _timeFrom.default)(timestamp, format);
+  });
+  Vue.prototype.$u = $u;
+};var _default =
+
+{
+  install: install };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 12:
+/*!******************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/mixin/mixin.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
+  data: function data() {
+    return {};
+  },
+  onLoad: function onLoad() {
+    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
+    this.$u.getRect = this.$uGetRect;
+  },
+  methods: {
+    // 查询节点信息
+    // 目前此方法在支付宝小程序中无法获取组件跟接点的尺寸，为支付宝的bug(2020-07-21)
+    // 解决办法为在组件根部再套一个没有任何作用的view元素
+    $uGetRect: function $uGetRect(selector, all) {var _this = this;
+      return new Promise(function (resolve) {
+        uni.createSelectorQuery().
+        in(_this)[all ? 'selectAll' : 'select'](selector).
+        boundingClientRect(function (rect) {
+          if (all && Array.isArray(rect) && rect.length) {
+            resolve(rect);
+          }
+          if (!all && rect) {
+            resolve(rect);
+          }
+        }).
+        exec();
+      });
+    },
+    getParentData: function getParentData() {var _this2 = this;var parentName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      // 避免在created中去定义parent变量
+      if (!this.parent) this.parent = false;
+      // 这里的本质原理是，通过获取父组件实例(也即u-radio-group的this)
+      // 将父组件this中对应的参数，赋值给本组件(u-radio的this)的parentData对象中对应的属性
+      // 之所以需要这么做，是因为所有端中，头条小程序不支持通过this.parent.xxx去监听父组件参数的变化
+      this.parent = this.$u.$parent.call(this, parentName);
+      if (this.parent) {
+        // 历遍parentData中的属性，将parent中的同名属性赋值给parentData
+        Object.keys(this.parentData).map(function (key) {
+          _this2.parentData[key] = _this2.parent[key];
+        });
+      }
+    },
+    // 阻止事件冒泡
+    preventEvent: function preventEvent(e) {
+      e && e.stopPropagation && e.stopPropagation();
+    } },
+
+  onReachBottom: function onReachBottom() {
+    uni.$emit('uOnReachBottom');
+  },
+  beforeDestroy: function beforeDestroy() {var _this3 = this;
+    // 判断当前页面是否存在parent和chldren，一般在checkbox和checkbox-group父子联动的场景会有此情况
+    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
+    if (this.parent && uni.$u.test.array(this.parent.children)) {
+      // 组件销毁时，移除父组件中的children数组中对应的实例
+      var childrenList = this.parent.children;
+      childrenList.map(function (child, index) {
+        // 如果相等，则移除
+        if (child === _this3) {
+          childrenList.splice(index, 1);
+        }
+      });
+    }
+  } };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 13:
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/request/index.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 14));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
+    // 设置全局默认配置
+    value: function setConfig(customConfig) {
+      // 深度合并对象，否则会造成对象深层属性丢失
+      this.config = (0, _deepMerge.default)(this.config, customConfig);
+    }
+
+    // 主要请求部分
+  }, { key: "request", value: function request() {var _this = this;var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      // 检查请求拦截
+      if (this.interceptor.request && typeof this.interceptor.request === 'function') {
+        var tmpConfig = {};
+        var interceptorRequest = this.interceptor.request(options);
+        if (interceptorRequest === false) {
+          // 返回一个处于pending状态中的Promise，来取消原promise，避免进入then()回调
+          return new Promise(function () {});
+        }
+        this.options = interceptorRequest;
+      }
+      options.dataType = options.dataType || this.config.dataType;
+      options.responseType = options.responseType || this.config.responseType;
+      options.url = options.url || '';
+      options.params = options.params || {};
+      options.header = Object.assign({}, this.config.header, options.header);
+      options.method = options.method || this.config.method;
+
+      return new Promise(function (resolve, reject) {
+        options.complete = function (response) {
+          // 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
+          uni.hideLoading();
+          // 清除定时器，如果请求回来了，就无需loading
+          clearTimeout(_this.config.timer);
+          _this.config.timer = null;
+          // 判断用户对拦截返回数据的要求，如果originalData为true，返回所有的数据(response)到拦截器，否则只返回response.data
+          if (_this.config.originalData) {
+            // 判断是否存在拦截器
+            if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
+              var resInterceptors = _this.interceptor.response(response);
+              // 如果拦截器不返回false，就将拦截器返回的内容给this.$u.post的then回调
+              if (resInterceptors !== false) {
+                resolve(resInterceptors);
+              } else {
+                // 如果拦截器返回false，意味着拦截器定义者认为返回有问题，直接接入catch回调
+                reject(response);
+              }
+            } else {
+              // 如果要求返回原始数据，就算没有拦截器，也返回最原始的数据
+              resolve(response);
+            }
+          } else {
+            if (response.statusCode == 200) {
+              if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
+                var _resInterceptors = _this.interceptor.response(response.data);
+                if (_resInterceptors !== false) {
+                  resolve(_resInterceptors);
+                } else {
+                  reject(response.data);
+                }
+              } else {
+                // 如果不是返回原始数据(originalData=false)，且没有拦截器的情况下，返回纯数据给then回调
+                resolve(response.data);
+              }
+            } else {
+              // 不返回原始数据的情况下，服务器状态码不为200，modal弹框提示
+              // if(response.errMsg) {
+              // 	uni.showModal({
+              // 		title: response.errMsg
+              // 	});
+              // }
+              reject(response);
+            }
+          }
+        };
+
+        // 判断用户传递的URL是否/开头,如果不是,加上/，这里使用了uView的test.js验证库的url()方法
+        options.url = _test.default.url(options.url) ? options.url : _this.config.baseUrl + (options.url.indexOf('/') == 0 ?
+        options.url : '/' + options.url);
+
+        // 是否显示loading
+        // 加一个是否已有timer定时器的判断，否则有两个同时请求的时候，后者会清除前者的定时器id
+        // 而没有清除前者的定时器，导致前者超时，一直显示loading
+        if (_this.config.showLoading && !_this.config.timer) {
+          _this.config.timer = setTimeout(function () {
+            uni.showLoading({
+              title: _this.config.loadingText,
+              mask: _this.config.loadingMask });
+
+            _this.config.timer = null;
+          }, _this.config.loadingTime);
+        }
+        uni.request(options);
+      });
+      // .catch(res => {
+      // 	// 如果返回reject()，不让其进入this.$u.post().then().catch()后面的catct()
+      // 	// 因为很多人都会忘了写后面的catch()，导致报错捕获不到catch
+      // 	return new Promise(()=>{});
+      // })
+    } }]);
+
+  function Request() {var _this2 = this;_classCallCheck(this, Request);
+    this.config = {
+      baseUrl: '', // 请求的根域名
+      // 默认的请求头
+      header: {},
+      method: 'POST',
+      // 设置为json，返回后uni.request会对数据进行一次JSON.parse
+      dataType: 'json',
+      // 此参数无需处理，因为5+和支付宝小程序不支持，默认为text即可
+      responseType: 'text',
+      showLoading: true, // 是否显示请求中的loading
+      loadingText: '请求中...',
+      loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
+      timer: null, // 定时器
+      originalData: false, // 是否在拦截器中返回服务端的原始数据，见文档说明
+      loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
+    };
+
+    // 拦截器
+    this.interceptor = {
+      // 请求前的拦截
+      request: null,
+      // 请求后的拦截
+      response: null };
+
+
+    // get请求
+    this.get = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        method: 'GET',
+        url: url,
+        header: header,
+        data: data });
+
+    };
+
+    // post请求
+    this.post = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'POST',
+        header: header,
+        data: data });
+
+    };
+
+    // put请求，不支持支付宝小程序(HX2.6.15)
+    this.put = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'PUT',
+        header: header,
+        data: data });
+
+    };
+
+    // delete请求，不支持支付宝和头条小程序(HX2.6.15)
+    this.delete = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'DELETE',
+        header: header,
+        data: data });
+
+    };
+  }return Request;}();var _default =
+
+new Request();exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 14:
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepMerge.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+// JS对象深度合并
+function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  target = (0, _deepClone.default)(target);
+  if (typeof target !== 'object' || typeof source !== 'object') return false;
+  for (var prop in source) {
+    if (!source.hasOwnProperty(prop)) continue;
+    if (prop in target) {
+      if (typeof target[prop] !== 'object') {
+        target[prop] = source[prop];
+      } else {
+        if (typeof source[prop] !== 'object') {
+          target[prop] = source[prop];
+        } else {
+          if (target[prop].concat && source[prop].concat) {
+            target[prop] = target[prop].concat(source[prop]);
+          } else {
+            target[prop] = deepMerge(target[prop], source[prop]);
+          }
+        }
+      }
+    } else {
+      target[prop] = source[prop];
+    }
+  }
+  return target;
+}var _default =
+
+deepMerge;exports.default = _default;
+
+/***/ }),
+
+/***/ 15:
+/*!*************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepClone.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 判断arr是否为一个数组，返回一个bool值
+function isArray(arr) {
+  return Object.prototype.toString.call(arr) === '[object Array]';
+}
+
+// 深度克隆
+function deepClone(obj) {
+  // 对常见的“非”值，直接返回原来值
+  if ([null, undefined, NaN, false].includes(obj)) return obj;
+  if (typeof obj !== "object" && typeof obj !== 'function') {
+    //原始类型直接返回
+    return obj;
+  }
+  var o = isArray(obj) ? [] : {};
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      o[i] = typeof obj[i] === "object" ? deepClone(obj[i]) : obj[i];
+    }
+  }
+  return o;
+}var _default =
+
+deepClone;exports.default = _default;
+
+/***/ }),
+
+/***/ 16:
+/*!********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/test.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 验证电子邮箱格式
+                                                                                                      */
+function email(value) {
+  return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value);
+}
+
+/**
+   * 验证手机格式
+   */
+function mobile(value) {
+  return /^1[3-9]\d{9}$/.test(value);
+}
+
+/**
+   * 验证URL格式
+   */
+function url(value) {
+  return /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/.test(value);
+}
+
+/**
+   * 验证日期格式
+   */
+function date(value) {
+  return !/Invalid|NaN/.test(new Date(value).toString());
+}
+
+/**
+   * 验证ISO类型的日期格式
+   */
+function dateISO(value) {
+  return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(value);
+}
+
+/**
+   * 验证十进制数字
+   */
+function number(value) {
+  return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
+}
+
+/**
+   * 验证整数
+   */
+function digits(value) {
+  return /^\d+$/.test(value);
+}
+
+/**
+   * 验证身份证号码
+   */
+function idCard(value) {
+  return /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(
+  value);
+}
+
+/**
+   * 是否车牌号
+   */
+function carNo(value) {
+  // 新能源车牌
+  var xreg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
+  // 旧车牌
+  var creg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
+  if (value.length === 7) {
+    return creg.test(value);
+  } else if (value.length === 8) {
+    return xreg.test(value);
+  } else {
+    return false;
+  }
+}
+
+/**
+   * 金额,只允许2位小数
+   */
+function amount(value) {
+  //金额，只允许保留两位小数
+  return /^[1-9]\d*(,\d{3})*(\.\d{1,2})?$|^0\.\d{1,2}$/.test(value);
+}
+
+/**
+   * 中文
+   */
+function chinese(value) {
+  var reg = /^[\u4e00-\u9fa5]+$/gi;
+  return reg.test(value);
+}
+
+/**
+   * 只能输入字母
+   */
+function letter(value) {
+  return /^[a-zA-Z]*$/.test(value);
+}
+
+/**
+   * 只能是字母或者数字
+   */
+function enOrNum(value) {
+  //英文或者数字
+  var reg = /^[0-9a-zA-Z]*$/g;
+  return reg.test(value);
+}
+
+/**
+   * 验证是否包含某个值
+   */
+function contains(value, param) {
+  return value.indexOf(param) >= 0;
+}
+
+/**
+   * 验证一个值范围[min, max]
+   */
+function range(value, param) {
+  return value >= param[0] && value <= param[1];
+}
+
+/**
+   * 验证一个长度范围[min, max]
+   */
+function rangeLength(value, param) {
+  return value.length >= param[0] && value.length <= param[1];
+}
+
+/**
+   * 是否固定电话
+   */
+function landline(value) {
+  var reg = /^\d{3,4}-\d{7,8}(-\d{3,4})?$/;
+  return reg.test(value);
+}
+
+/**
+   * 判断是否为空
+   */
+function empty(value) {
+  switch (typeof value) {
+    case 'undefined':
+      return true;
+    case 'string':
+      if (value.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length == 0) return true;
+      break;
+    case 'boolean':
+      if (!value) return true;
+      break;
+    case 'number':
+      if (0 === value || isNaN(value)) return true;
+      break;
+    case 'object':
+      if (null === value || value.length === 0) return true;
+      for (var i in value) {
+        return false;
+      }
+      return true;}
+
+  return false;
+}
+
+/**
+   * 是否json字符串
+   */
+function jsonString(value) {
+  if (typeof value == 'string') {
+    try {
+      var obj = JSON.parse(value);
+      if (typeof obj == 'object' && obj) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
+  return false;
+}
+
+
+/**
+   * 是否数组
+   */
+function array(value) {
+  if (typeof Array.isArray === "function") {
+    return Array.isArray(value);
+  } else {
+    return Object.prototype.toString.call(value) === "[object Array]";
+  }
+}
+
+/**
+   * 是否对象
+   */
+function object(value) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+/**
+   * 是否短信验证码
+   */
+function code(value) {var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return new RegExp("^\\d{".concat(len, "}$")).test(value);
+}var _default =
+
+
+{
+  email: email,
+  mobile: mobile,
+  url: url,
+  date: date,
+  dateISO: dateISO,
+  number: number,
+  digits: digits,
+  idCard: idCard,
+  carNo: carNo,
+  amount: amount,
+  chinese: chinese,
+  letter: letter,
+  enOrNum: enOrNum,
+  contains: contains,
+  range: range,
+  rangeLength: rangeLength,
+  empty: empty,
+  isEmpty: empty,
+  jsonString: jsonString,
+  landline: landline,
+  object: object,
+  array: array,
+  code: code };exports.default = _default;
+
+/***/ }),
+
+/***/ 17:
+/*!***************************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/queryParams.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 对象转url参数
+                                                                                                      * @param {*} data,对象
+                                                                                                      * @param {*} isPrefix,是否自动加上"?"
+                                                                                                      */
+function queryParams() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var isPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var arrayFormat = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'brackets';
+  var prefix = isPrefix ? '?' : '';
+  var _result = [];
+  if (['indices', 'brackets', 'repeat', 'comma'].indexOf(arrayFormat) == -1) arrayFormat = 'brackets';var _loop = function _loop(
+  key) {
+    var value = data[key];
+    // 去掉为空的参数
+    if (['', undefined, null].indexOf(value) >= 0) {
+      return "continue";
+    }
+    // 如果值为数组，另行处理
+    if (value.constructor === Array) {
+      // e.g. {ids: [1, 2, 3]}
+      switch (arrayFormat) {
+        case 'indices':
+          // 结果: ids[0]=1&ids[1]=2&ids[2]=3
+          for (var i = 0; i < value.length; i++) {
+            _result.push(key + '[' + i + ']=' + value[i]);
+          }
+          break;
+        case 'brackets':
+          // 结果: ids[]=1&ids[]=2&ids[]=3
+          value.forEach(function (_value) {
+            _result.push(key + '[]=' + _value);
+          });
+          break;
+        case 'repeat':
+          // 结果: ids=1&ids=2&ids=3
+          value.forEach(function (_value) {
+            _result.push(key + '=' + _value);
+          });
+          break;
+        case 'comma':
+          // 结果: ids=1,2,3
+          var commaStr = "";
+          value.forEach(function (_value) {
+            commaStr += (commaStr ? "," : "") + _value;
+          });
+          _result.push(key + '=' + commaStr);
+          break;
+        default:
+          value.forEach(function (_value) {
+            _result.push(key + '[]=' + _value);
+          });}
+
+    } else {
+      _result.push(key + '=' + value);
+    }};for (var key in data) {var _ret = _loop(key);if (_ret === "continue") continue;
+  }
+  return _result.length ? prefix + _result.join('&') : '';
+}var _default =
+
+queryParams;exports.default = _default;
+
+/***/ }),
+
+/***/ 18:
+/*!*********************************************************************!*\
+  !*** D:/webCode/video/node_modules/uview-ui/libs/function/route.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
+
+Router = /*#__PURE__*/function () {
+  function Router() {_classCallCheck(this, Router);
+    // 原始属性定义
+    this.config = {
+      type: 'navigateTo',
+      url: '',
+      delta: 1, // navigateBack页面后退时,回退的层数
+      params: {}, // 传递的参数
+      animationType: 'pop-in', // 窗口动画,只在APP有效
+      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
+      intercept: false // 是否需要拦截
+    };
+    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
+    // 这里在构造函数中进行this绑定
+    this.route = this.route.bind(this);
+  }
+
+  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
+  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
+      return url[0] === '/' ? url : "/".concat(url);
+    }
+
+    // 整合路由参数
+  }, { key: "mixinParam", value: function mixinParam(url, params) {
+      url = url && this.addRootPath(url);
+
+      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
+      // 如果有url中有get参数，转换后无需带上"?"
+      var query = '';
+      if (/.*\/.*\?.*=.*/.test(url)) {
+        // object对象转为get类型的参数
+        query = uni.$u.queryParams(params, false);
+        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
+        return url += "&" + query;
+      } else {
+        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
+        query = uni.$u.queryParams(params);
+        return url += query;
+      }
+    }
+
+    // 对外的方法名称
+  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+                // 合并用户的配置和内部的默认配置
+                mergeConfig = {};
+
+                if (typeof options === 'string') {
+                  // 如果options为字符串，则为route(url, params)的形式
+                  mergeConfig.url = this.mixinParam(options, params);
+                  mergeConfig.type = 'navigateTo';
+                } else {
+                  mergeConfig = uni.$u.deepClone(options, this.config);
+                  // 否则正常使用mergeConfig中的url和params进行拼接
+                  mergeConfig.url = this.mixinParam(options.url, options.params);
+                }
+
+                if (params.intercept) {
+                  this.config.intercept = params.intercept;
+                }
+                // params参数也带给拦截器
+                mergeConfig.params = params;
+                // 合并内外部参数
+                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
+                // 判断用户是否定义了拦截器
+                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
+
+                  new Promise(function (resolve, reject) {
+                    uni.$u.routeIntercept(mergeConfig, resolve);
+                  }));case 10:isNext = _context.sent;
+                // 如果isNext为true，则执行路由跳转
+                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
+
+                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
+
+
+
+    // 执行路由跳转
+  }, { key: "openPage", value: function openPage(config) {
+      // 解构参数
+      var
+      url =
+
+
+
+
+      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
+      if (config.type == 'navigateTo' || config.type == 'to') {
+        uni.navigateTo({
+          url: url,
+          animationType: animationType,
+          animationDuration: animationDuration });
+
+      }
+      if (config.type == 'redirectTo' || config.type == 'redirect') {
+        uni.redirectTo({
+          url: url });
+
+      }
+      if (config.type == 'switchTab' || config.type == 'tab') {
+        uni.switchTab({
+          url: url });
+
+      }
+      if (config.type == 'reLaunch' || config.type == 'launch') {
+        uni.reLaunch({
+          url: url });
+
+      }
+      if (config.type == 'navigateBack' || config.type == 'back') {
+        uni.navigateBack({
+          delta: delta });
+
+      }
+    } }]);return Router;}();var _default =
+
+
+new Router().route;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 19:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7395,7 +8463,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7416,14 +8484,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7509,7 +8577,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartCase","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7916,1109 +8984,8 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/*!***********************************!*\
-  !*** D:/webCode/video/pages.json ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 11 */
-/*!*******************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/index.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 12));
-
-
-
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 13));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 17));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 18));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 22));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 23));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 24));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 25));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 26));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 27));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 28));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 15));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 14));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 29));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 16));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 30));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 31));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 32));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 33));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 34));
-
-
-
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 35);
-
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 36));
-
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 37));
-
-
-
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 38));
-
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 39));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
-// 引入关于是否mixin集成小程序分享的配置
-// import wxshare from './libs/mixin/mpShare.js'
-// 全局挂载引入http相关请求拦截插件
-function wranning(str) {// 开发环境进行信息输出,主要是一些报错信息
-  // 这个环境的来由是在程序编写时候,点击hx编辑器运行调试代码的时候,详见:
-  // 	https://uniapp.dcloud.io/frame?id=%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%92%8c%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83
-  if (true) {console.warn(str);}} // 尝试判断在根目录的/store中是否有$u.mixin.js，此文件uView默认为需要挂在到全局的vuex的state变量
-// HX2.6.11版本,放到try中,控制台依然会警告,暂时不用此方式，
-// let vuexStore = {};
-// try {
-// 	vuexStore = require("@/store/$u.mixin.js");
-// } catch (e) {
-// 	//TODO handle the exception
-// }
-// post类型对象参数转为get类型url参数
-var $u = { queryParams: _queryParams.default, route: _route.default, timeFormat: _timeFormat.default, date: _timeFormat.default, // 另名date
-  timeFrom: _timeFrom.default, colorGradient: _colorGradient.default.colorGradient, colorToRgba: _colorGradient.default.colorToRgba, guid: _guid.default, color: _color.default, sys: _sys.sys, os: _sys.os, type2icon: _type2icon.default, randomArray: _randomArray.default, wranning: wranning, get: _request.default.get,
-  post: _request.default.post,
-  put: _request.default.put,
-  'delete': _request.default.delete,
-  hexToRgb: _colorGradient.default.hexToRgb,
-  rgbToHex: _colorGradient.default.rgbToHex,
-  test: _test.default,
-  random: _random.default,
-  deepClone: _deepClone.default,
-  deepMerge: _deepMerge.default,
-  getParent: _getParent.default,
-  $parent: _$parent.default,
-  addUnit: _addUnit.default,
-  trim: _trim.default,
-  type: ['primary', 'success', 'error', 'warning', 'info'],
-  http: _request.default,
-  toast: _toast.default,
-  config: _config.default, // uView配置信息相关，比如版本号
-  zIndex: _zIndex.default,
-  debounce: _debounce.default,
-  throttle: _throttle.default };
-
-
-// $u挂载到uni对象上
-uni.$u = $u;
-
-var install = function install(Vue) {
-  Vue.mixin(_mixin.default);
-  if (Vue.prototype.openShare) {
-    Vue.mixin(mpShare);
-  }
-  // Vue.mixin(vuexStore);
-  // 时间格式化，同时两个名称，date和timeFormat
-  Vue.filter('timeFormat', function (timestamp, format) {
-    return (0, _timeFormat.default)(timestamp, format);
-  });
-  Vue.filter('date', function (timestamp, format) {
-    return (0, _timeFormat.default)(timestamp, format);
-  });
-  // 将多久以前的方法，注入到全局过滤器
-  Vue.filter('timeFrom', function (timestamp, format) {
-    return (0, _timeFrom.default)(timestamp, format);
-  });
-  Vue.prototype.$u = $u;
-};var _default =
-
-{
-  install: install };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 12 */
-/*!******************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/mixin/mixin.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
-  data: function data() {
-    return {};
-  },
-  onLoad: function onLoad() {
-    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
-    this.$u.getRect = this.$uGetRect;
-  },
-  methods: {
-    // 查询节点信息
-    // 目前此方法在支付宝小程序中无法获取组件跟接点的尺寸，为支付宝的bug(2020-07-21)
-    // 解决办法为在组件根部再套一个没有任何作用的view元素
-    $uGetRect: function $uGetRect(selector, all) {var _this = this;
-      return new Promise(function (resolve) {
-        uni.createSelectorQuery().
-        in(_this)[all ? 'selectAll' : 'select'](selector).
-        boundingClientRect(function (rect) {
-          if (all && Array.isArray(rect) && rect.length) {
-            resolve(rect);
-          }
-          if (!all && rect) {
-            resolve(rect);
-          }
-        }).
-        exec();
-      });
-    },
-    getParentData: function getParentData() {var _this2 = this;var parentName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      // 避免在created中去定义parent变量
-      if (!this.parent) this.parent = false;
-      // 这里的本质原理是，通过获取父组件实例(也即u-radio-group的this)
-      // 将父组件this中对应的参数，赋值给本组件(u-radio的this)的parentData对象中对应的属性
-      // 之所以需要这么做，是因为所有端中，头条小程序不支持通过this.parent.xxx去监听父组件参数的变化
-      this.parent = this.$u.$parent.call(this, parentName);
-      if (this.parent) {
-        // 历遍parentData中的属性，将parent中的同名属性赋值给parentData
-        Object.keys(this.parentData).map(function (key) {
-          _this2.parentData[key] = _this2.parent[key];
-        });
-      }
-    },
-    // 阻止事件冒泡
-    preventEvent: function preventEvent(e) {
-      e && e.stopPropagation && e.stopPropagation();
-    } },
-
-  onReachBottom: function onReachBottom() {
-    uni.$emit('uOnReachBottom');
-  },
-  beforeDestroy: function beforeDestroy() {var _this3 = this;
-    // 判断当前页面是否存在parent和chldren，一般在checkbox和checkbox-group父子联动的场景会有此情况
-    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
-    if (this.parent && uni.$u.test.array(this.parent.children)) {
-      // 组件销毁时，移除父组件中的children数组中对应的实例
-      var childrenList = this.parent.children;
-      childrenList.map(function (child, index) {
-        // 如果相等，则移除
-        if (child === _this3) {
-          childrenList.splice(index, 1);
-        }
-      });
-    }
-  } };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 13 */
-/*!********************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/request/index.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 14));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
-Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
-    // 设置全局默认配置
-    value: function setConfig(customConfig) {
-      // 深度合并对象，否则会造成对象深层属性丢失
-      this.config = (0, _deepMerge.default)(this.config, customConfig);
-    }
-
-    // 主要请求部分
-  }, { key: "request", value: function request() {var _this = this;var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      // 检查请求拦截
-      if (this.interceptor.request && typeof this.interceptor.request === 'function') {
-        var tmpConfig = {};
-        var interceptorRequest = this.interceptor.request(options);
-        if (interceptorRequest === false) {
-          // 返回一个处于pending状态中的Promise，来取消原promise，避免进入then()回调
-          return new Promise(function () {});
-        }
-        this.options = interceptorRequest;
-      }
-      options.dataType = options.dataType || this.config.dataType;
-      options.responseType = options.responseType || this.config.responseType;
-      options.url = options.url || '';
-      options.params = options.params || {};
-      options.header = Object.assign({}, this.config.header, options.header);
-      options.method = options.method || this.config.method;
-
-      return new Promise(function (resolve, reject) {
-        options.complete = function (response) {
-          // 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
-          uni.hideLoading();
-          // 清除定时器，如果请求回来了，就无需loading
-          clearTimeout(_this.config.timer);
-          _this.config.timer = null;
-          // 判断用户对拦截返回数据的要求，如果originalData为true，返回所有的数据(response)到拦截器，否则只返回response.data
-          if (_this.config.originalData) {
-            // 判断是否存在拦截器
-            if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
-              var resInterceptors = _this.interceptor.response(response);
-              // 如果拦截器不返回false，就将拦截器返回的内容给this.$u.post的then回调
-              if (resInterceptors !== false) {
-                resolve(resInterceptors);
-              } else {
-                // 如果拦截器返回false，意味着拦截器定义者认为返回有问题，直接接入catch回调
-                reject(response);
-              }
-            } else {
-              // 如果要求返回原始数据，就算没有拦截器，也返回最原始的数据
-              resolve(response);
-            }
-          } else {
-            if (response.statusCode == 200) {
-              if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
-                var _resInterceptors = _this.interceptor.response(response.data);
-                if (_resInterceptors !== false) {
-                  resolve(_resInterceptors);
-                } else {
-                  reject(response.data);
-                }
-              } else {
-                // 如果不是返回原始数据(originalData=false)，且没有拦截器的情况下，返回纯数据给then回调
-                resolve(response.data);
-              }
-            } else {
-              // 不返回原始数据的情况下，服务器状态码不为200，modal弹框提示
-              // if(response.errMsg) {
-              // 	uni.showModal({
-              // 		title: response.errMsg
-              // 	});
-              // }
-              reject(response);
-            }
-          }
-        };
-
-        // 判断用户传递的URL是否/开头,如果不是,加上/，这里使用了uView的test.js验证库的url()方法
-        options.url = _test.default.url(options.url) ? options.url : _this.config.baseUrl + (options.url.indexOf('/') == 0 ?
-        options.url : '/' + options.url);
-
-        // 是否显示loading
-        // 加一个是否已有timer定时器的判断，否则有两个同时请求的时候，后者会清除前者的定时器id
-        // 而没有清除前者的定时器，导致前者超时，一直显示loading
-        if (_this.config.showLoading && !_this.config.timer) {
-          _this.config.timer = setTimeout(function () {
-            uni.showLoading({
-              title: _this.config.loadingText,
-              mask: _this.config.loadingMask });
-
-            _this.config.timer = null;
-          }, _this.config.loadingTime);
-        }
-        uni.request(options);
-      });
-      // .catch(res => {
-      // 	// 如果返回reject()，不让其进入this.$u.post().then().catch()后面的catct()
-      // 	// 因为很多人都会忘了写后面的catch()，导致报错捕获不到catch
-      // 	return new Promise(()=>{});
-      // })
-    } }]);
-
-  function Request() {var _this2 = this;_classCallCheck(this, Request);
-    this.config = {
-      baseUrl: '', // 请求的根域名
-      // 默认的请求头
-      header: {},
-      method: 'POST',
-      // 设置为json，返回后uni.request会对数据进行一次JSON.parse
-      dataType: 'json',
-      // 此参数无需处理，因为5+和支付宝小程序不支持，默认为text即可
-      responseType: 'text',
-      showLoading: true, // 是否显示请求中的loading
-      loadingText: '请求中...',
-      loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
-      timer: null, // 定时器
-      originalData: false, // 是否在拦截器中返回服务端的原始数据，见文档说明
-      loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
-    };
-
-    // 拦截器
-    this.interceptor = {
-      // 请求前的拦截
-      request: null,
-      // 请求后的拦截
-      response: null };
-
-
-    // get请求
-    this.get = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        method: 'GET',
-        url: url,
-        header: header,
-        data: data });
-
-    };
-
-    // post请求
-    this.post = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'POST',
-        header: header,
-        data: data });
-
-    };
-
-    // put请求，不支持支付宝小程序(HX2.6.15)
-    this.put = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'PUT',
-        header: header,
-        data: data });
-
-    };
-
-    // delete请求，不支持支付宝和头条小程序(HX2.6.15)
-    this.delete = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'DELETE',
-        header: header,
-        data: data });
-
-    };
-  }return Request;}();var _default =
-
-new Request();exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 14 */
-/*!*************************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepMerge.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-// JS对象深度合并
-function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  target = (0, _deepClone.default)(target);
-  if (typeof target !== 'object' || typeof source !== 'object') return false;
-  for (var prop in source) {
-    if (!source.hasOwnProperty(prop)) continue;
-    if (prop in target) {
-      if (typeof target[prop] !== 'object') {
-        target[prop] = source[prop];
-      } else {
-        if (typeof source[prop] !== 'object') {
-          target[prop] = source[prop];
-        } else {
-          if (target[prop].concat && source[prop].concat) {
-            target[prop] = target[prop].concat(source[prop]);
-          } else {
-            target[prop] = deepMerge(target[prop], source[prop]);
-          }
-        }
-      }
-    } else {
-      target[prop] = source[prop];
-    }
-  }
-  return target;
-}var _default =
-
-deepMerge;exports.default = _default;
-
-/***/ }),
-/* 15 */
-/*!*************************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/function/deepClone.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 判断arr是否为一个数组，返回一个bool值
-function isArray(arr) {
-  return Object.prototype.toString.call(arr) === '[object Array]';
-}
-
-// 深度克隆
-function deepClone(obj) {
-  // 对常见的“非”值，直接返回原来值
-  if ([null, undefined, NaN, false].includes(obj)) return obj;
-  if (typeof obj !== "object" && typeof obj !== 'function') {
-    //原始类型直接返回
-    return obj;
-  }
-  var o = isArray(obj) ? [] : {};
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      o[i] = typeof obj[i] === "object" ? deepClone(obj[i]) : obj[i];
-    }
-  }
-  return o;
-}var _default =
-
-deepClone;exports.default = _default;
-
-/***/ }),
-/* 16 */
-/*!********************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/function/test.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 验证电子邮箱格式
-                                                                                                      */
-function email(value) {
-  return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value);
-}
-
-/**
-   * 验证手机格式
-   */
-function mobile(value) {
-  return /^1[3-9]\d{9}$/.test(value);
-}
-
-/**
-   * 验证URL格式
-   */
-function url(value) {
-  return /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/.test(value);
-}
-
-/**
-   * 验证日期格式
-   */
-function date(value) {
-  return !/Invalid|NaN/.test(new Date(value).toString());
-}
-
-/**
-   * 验证ISO类型的日期格式
-   */
-function dateISO(value) {
-  return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(value);
-}
-
-/**
-   * 验证十进制数字
-   */
-function number(value) {
-  return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
-}
-
-/**
-   * 验证整数
-   */
-function digits(value) {
-  return /^\d+$/.test(value);
-}
-
-/**
-   * 验证身份证号码
-   */
-function idCard(value) {
-  return /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(
-  value);
-}
-
-/**
-   * 是否车牌号
-   */
-function carNo(value) {
-  // 新能源车牌
-  var xreg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
-  // 旧车牌
-  var creg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
-  if (value.length === 7) {
-    return creg.test(value);
-  } else if (value.length === 8) {
-    return xreg.test(value);
-  } else {
-    return false;
-  }
-}
-
-/**
-   * 金额,只允许2位小数
-   */
-function amount(value) {
-  //金额，只允许保留两位小数
-  return /^[1-9]\d*(,\d{3})*(\.\d{1,2})?$|^0\.\d{1,2}$/.test(value);
-}
-
-/**
-   * 中文
-   */
-function chinese(value) {
-  var reg = /^[\u4e00-\u9fa5]+$/gi;
-  return reg.test(value);
-}
-
-/**
-   * 只能输入字母
-   */
-function letter(value) {
-  return /^[a-zA-Z]*$/.test(value);
-}
-
-/**
-   * 只能是字母或者数字
-   */
-function enOrNum(value) {
-  //英文或者数字
-  var reg = /^[0-9a-zA-Z]*$/g;
-  return reg.test(value);
-}
-
-/**
-   * 验证是否包含某个值
-   */
-function contains(value, param) {
-  return value.indexOf(param) >= 0;
-}
-
-/**
-   * 验证一个值范围[min, max]
-   */
-function range(value, param) {
-  return value >= param[0] && value <= param[1];
-}
-
-/**
-   * 验证一个长度范围[min, max]
-   */
-function rangeLength(value, param) {
-  return value.length >= param[0] && value.length <= param[1];
-}
-
-/**
-   * 是否固定电话
-   */
-function landline(value) {
-  var reg = /^\d{3,4}-\d{7,8}(-\d{3,4})?$/;
-  return reg.test(value);
-}
-
-/**
-   * 判断是否为空
-   */
-function empty(value) {
-  switch (typeof value) {
-    case 'undefined':
-      return true;
-    case 'string':
-      if (value.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length == 0) return true;
-      break;
-    case 'boolean':
-      if (!value) return true;
-      break;
-    case 'number':
-      if (0 === value || isNaN(value)) return true;
-      break;
-    case 'object':
-      if (null === value || value.length === 0) return true;
-      for (var i in value) {
-        return false;
-      }
-      return true;}
-
-  return false;
-}
-
-/**
-   * 是否json字符串
-   */
-function jsonString(value) {
-  if (typeof value == 'string') {
-    try {
-      var obj = JSON.parse(value);
-      if (typeof obj == 'object' && obj) {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      return false;
-    }
-  }
-  return false;
-}
-
-
-/**
-   * 是否数组
-   */
-function array(value) {
-  if (typeof Array.isArray === "function") {
-    return Array.isArray(value);
-  } else {
-    return Object.prototype.toString.call(value) === "[object Array]";
-  }
-}
-
-/**
-   * 是否对象
-   */
-function object(value) {
-  return Object.prototype.toString.call(value) === '[object Object]';
-}
-
-/**
-   * 是否短信验证码
-   */
-function code(value) {var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return new RegExp("^\\d{".concat(len, "}$")).test(value);
-}var _default =
-
-
-{
-  email: email,
-  mobile: mobile,
-  url: url,
-  date: date,
-  dateISO: dateISO,
-  number: number,
-  digits: digits,
-  idCard: idCard,
-  carNo: carNo,
-  amount: amount,
-  chinese: chinese,
-  letter: letter,
-  enOrNum: enOrNum,
-  contains: contains,
-  range: range,
-  rangeLength: rangeLength,
-  empty: empty,
-  isEmpty: empty,
-  jsonString: jsonString,
-  landline: landline,
-  object: object,
-  array: array,
-  code: code };exports.default = _default;
-
-/***/ }),
-/* 17 */
-/*!***************************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/function/queryParams.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      * 对象转url参数
-                                                                                                      * @param {*} data,对象
-                                                                                                      * @param {*} isPrefix,是否自动加上"?"
-                                                                                                      */
-function queryParams() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var isPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var arrayFormat = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'brackets';
-  var prefix = isPrefix ? '?' : '';
-  var _result = [];
-  if (['indices', 'brackets', 'repeat', 'comma'].indexOf(arrayFormat) == -1) arrayFormat = 'brackets';var _loop = function _loop(
-  key) {
-    var value = data[key];
-    // 去掉为空的参数
-    if (['', undefined, null].indexOf(value) >= 0) {
-      return "continue";
-    }
-    // 如果值为数组，另行处理
-    if (value.constructor === Array) {
-      // e.g. {ids: [1, 2, 3]}
-      switch (arrayFormat) {
-        case 'indices':
-          // 结果: ids[0]=1&ids[1]=2&ids[2]=3
-          for (var i = 0; i < value.length; i++) {
-            _result.push(key + '[' + i + ']=' + value[i]);
-          }
-          break;
-        case 'brackets':
-          // 结果: ids[]=1&ids[]=2&ids[]=3
-          value.forEach(function (_value) {
-            _result.push(key + '[]=' + _value);
-          });
-          break;
-        case 'repeat':
-          // 结果: ids=1&ids=2&ids=3
-          value.forEach(function (_value) {
-            _result.push(key + '=' + _value);
-          });
-          break;
-        case 'comma':
-          // 结果: ids=1,2,3
-          var commaStr = "";
-          value.forEach(function (_value) {
-            commaStr += (commaStr ? "," : "") + _value;
-          });
-          _result.push(key + '=' + commaStr);
-          break;
-        default:
-          value.forEach(function (_value) {
-            _result.push(key + '[]=' + _value);
-          });}
-
-    } else {
-      _result.push(key + '=' + value);
-    }};for (var key in data) {var _ret = _loop(key);if (_ret === "continue") continue;
-  }
-  return _result.length ? prefix + _result.join('&') : '';
-}var _default =
-
-queryParams;exports.default = _default;
-
-/***/ }),
-/* 18 */
-/*!*********************************************************************!*\
-  !*** D:/webCode/video/node_modules/uview-ui/libs/function/route.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
-
-Router = /*#__PURE__*/function () {
-  function Router() {_classCallCheck(this, Router);
-    // 原始属性定义
-    this.config = {
-      type: 'navigateTo',
-      url: '',
-      delta: 1, // navigateBack页面后退时,回退的层数
-      params: {}, // 传递的参数
-      animationType: 'pop-in', // 窗口动画,只在APP有效
-      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
-      intercept: false // 是否需要拦截
-    };
-    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
-    // 这里在构造函数中进行this绑定
-    this.route = this.route.bind(this);
-  }
-
-  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
-  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
-      return url[0] === '/' ? url : "/".concat(url);
-    }
-
-    // 整合路由参数
-  }, { key: "mixinParam", value: function mixinParam(url, params) {
-      url = url && this.addRootPath(url);
-
-      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
-      // 如果有url中有get参数，转换后无需带上"?"
-      var query = '';
-      if (/.*\/.*\?.*=.*/.test(url)) {
-        // object对象转为get类型的参数
-        query = uni.$u.queryParams(params, false);
-        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
-        return url += "&" + query;
-      } else {
-        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
-        query = uni.$u.queryParams(params);
-        return url += query;
-      }
-    }
-
-    // 对外的方法名称
-  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
-                // 合并用户的配置和内部的默认配置
-                mergeConfig = {};
-
-                if (typeof options === 'string') {
-                  // 如果options为字符串，则为route(url, params)的形式
-                  mergeConfig.url = this.mixinParam(options, params);
-                  mergeConfig.type = 'navigateTo';
-                } else {
-                  mergeConfig = uni.$u.deepClone(options, this.config);
-                  // 否则正常使用mergeConfig中的url和params进行拼接
-                  mergeConfig.url = this.mixinParam(options.url, options.params);
-                }
-
-                if (params.intercept) {
-                  this.config.intercept = params.intercept;
-                }
-                // params参数也带给拦截器
-                mergeConfig.params = params;
-                // 合并内外部参数
-                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
-                // 判断用户是否定义了拦截器
-                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
-
-                  new Promise(function (resolve, reject) {
-                    uni.$u.routeIntercept(mergeConfig, resolve);
-                  }));case 10:isNext = _context.sent;
-                // 如果isNext为true，则执行路由跳转
-                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
-
-                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
-
-
-
-    // 执行路由跳转
-  }, { key: "openPage", value: function openPage(config) {
-      // 解构参数
-      var
-      url =
-
-
-
-
-      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
-      if (config.type == 'navigateTo' || config.type == 'to') {
-        uni.navigateTo({
-          url: url,
-          animationType: animationType,
-          animationDuration: animationDuration });
-
-      }
-      if (config.type == 'redirectTo' || config.type == 'redirect') {
-        uni.redirectTo({
-          url: url });
-
-      }
-      if (config.type == 'switchTab' || config.type == 'tab') {
-        uni.switchTab({
-          url: url });
-
-      }
-      if (config.type == 'reLaunch' || config.type == 'launch') {
-        uni.reLaunch({
-          url: url });
-
-      }
-      if (config.type == 'navigateBack' || config.type == 'back') {
-        uni.navigateBack({
-          delta: delta });
-
-      }
-    } }]);return Router;}();var _default =
-
-
-new Router().route;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 19 */
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
-
-/***/ }),
-/* 20 */
+/***/ 20:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9065,7 +9032,8 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 21 */
+
+/***/ 21:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -9796,7 +9764,8 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 22 */
+
+/***/ 22:
 /*!**************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/timeFormat.js ***!
   \**************************************************************************/
@@ -9857,7 +9826,8 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 23 */
+
+/***/ 23:
 /*!************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/timeFrom.js ***!
   \************************************************************************/
@@ -9914,7 +9884,8 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 24 */
+
+/***/ 24:
 /*!*****************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/colorGradient.js ***!
   \*****************************************************************************/
@@ -10057,7 +10028,8 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 25 */
+
+/***/ 25:
 /*!********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/guid.js ***!
   \********************************************************************/
@@ -10108,7 +10080,8 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 26 */
+
+/***/ 26:
 /*!*********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/color.js ***!
   \*********************************************************************/
@@ -10155,7 +10128,8 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 27 */
+
+/***/ 27:
 /*!*************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/type2icon.js ***!
   \*************************************************************************/
@@ -10200,7 +10174,8 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 28 */
+
+/***/ 28:
 /*!***************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/randomArray.js ***!
   \***************************************************************************/
@@ -10217,7 +10192,8 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 29 */
+
+/***/ 29:
 /*!***********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/addUnit.js ***!
   \***********************************************************************/
@@ -10235,7 +10211,156 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 30 */
+
+/***/ 291:
+/*!*************************************!*\
+  !*** D:/webCode/video/api/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 292));
+var _util = __webpack_require__(/*! ../common/util.js */ 293);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var api = {};
+// POST请求方式
+api.login = function (params) {return _request.default.globalRequest('/auth/login', 'POST', params);};
+api.register = function (params) {return _request.default.globalRequest('/auth/register', 'POST', params);};
+api.getcaptcha = function (params) {return _request.default.globalRequest('captcha', 'GET');};var _default =
+
+api;exports.default = _default;
+
+/***/ }),
+
+/***/ 292:
+/*!******************************************!*\
+  !*** D:/webCode/video/common/request.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 294));
+var _util = _interopRequireDefault(__webpack_require__(/*! ./util.js */ 293));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var request = {};
+var headers = {};
+
+request.globalRequest = function (url, method, data, auth) {
+
+  if (auth == 1) {
+    var token = uni.getStorageSync('token');
+    if (token == null) {
+      console.log("token 不存在");
+      return;
+    }
+    headers['Authorization'] = token;
+  }
+
+
+  return uni.request({
+    url: _config.default + url,
+    method: method,
+    data: data,
+    dataType: 'json',
+    header: headers }).
+  then(function (res) {
+    if (res.code = 401) {
+
+    }
+    return res;
+  }).catch(function (res) {
+    console.log(res);
+  }).final(function (res) {
+    console.log(res);
+    //异步操作完成
+  });
+};var _default =
+
+request;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 293:
+/*!***************************************!*\
+  !*** D:/webCode/video/common/util.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatGetUri = formatGetUri; /**
+                                                                                                                 * 拼接对象为请求字符串
+                                                                                                                 * 对于需要编码的文本（比如说中文）我们要进行编码
+                                                                                                                 * @param {Object} obj - 待拼接的对象
+                                                                                                                 * @returns {string} - 拼接成的请求字符串
+                                                                                                                 **/
+function formatGetUri(obj) {
+  var params = [];
+  Object.keys(obj).forEach(function (key) {
+    var value = obj[key];
+    if (typeof value !== 'undefined' || value !== null) {
+      params.push([key, encodeURIComponent(value)].join('='));
+    }
+  });
+  return '?' + params.join('&');
+}
+
+/***/ }),
+
+/***/ 294:
+/*!*****************************************!*\
+  !*** D:/webCode/video/common/config.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var url_config = "";
+
+if (true) {
+  // 开发环境
+  url_config = 'https://localhost:8080/';
+} else {}var _default =
+
+url_config;exports.default = _default;
+
+/***/ }),
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
 /*!**********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/random.js ***!
   \**********************************************************************/
@@ -10255,7 +10380,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 31 */
+
+/***/ 31:
 /*!********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/trim.js ***!
   \********************************************************************/
@@ -10280,7 +10406,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 32 */
+
+/***/ 32:
 /*!*********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/toast.js ***!
   \*********************************************************************/
@@ -10300,7 +10427,8 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 33 */
+
+/***/ 33:
 /*!*************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/getParent.js ***!
   \*************************************************************************/
@@ -10357,7 +10485,8 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 34 */
+
+/***/ 34:
 /*!***********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/$parent.js ***!
   \***********************************************************************/
@@ -10385,7 +10514,8 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 35 */
+
+/***/ 35:
 /*!*******************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/sys.js ***!
   \*******************************************************************/
@@ -10403,7 +10533,8 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 36 */
+
+/***/ 36:
 /*!************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/debounce.js ***!
   \************************************************************************/
@@ -10442,7 +10573,8 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 37 */
+
+/***/ 37:
 /*!************************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/function/throttle.js ***!
   \************************************************************************/
@@ -10484,7 +10616,8 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 38 */
+
+/***/ 38:
 /*!********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/config/config.js ***!
   \********************************************************************/
@@ -10507,7 +10640,8 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 39 */
+
+/***/ 39:
 /*!********************************************************************!*\
   !*** D:/webCode/video/node_modules/uview-ui/libs/config/zIndex.js ***!
   \********************************************************************/
@@ -10536,25 +10670,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   indexListSticky: 965 };exports.default = _default;
 
 /***/ }),
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */
+
+/***/ 4:
+/*!***********************************!*\
+  !*** D:/webCode/video/pages.json ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 58:
 /*!************************************************!*\
   !*** D:/webCode/video/static/img/loginBg1.png ***!
   \************************************************/
@@ -10564,7 +10692,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 module.exports = "data:image/png;base64,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"
 
 /***/ }),
-/* 59 */
+
+/***/ 59:
 /*!************************************************!*\
   !*** D:/webCode/video/static/img/loginBg2.png ***!
   \************************************************/
@@ -10574,7 +10703,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ8AAADwCAYAAAAe
 module.exports = "/static/img/loginBg2.png";
 
 /***/ }),
-/* 60 */
+
+/***/ 60:
 /*!*************************************************!*\
   !*** D:/webCode/video/static/moreIcon/myBg.png ***!
   \*************************************************/
@@ -10584,7 +10714,8 @@ module.exports = "/static/img/loginBg2.png";
 module.exports = "data:image/png;base64,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"
 
 /***/ }),
-/* 61 */
+
+/***/ 61:
 /*!*******************************************!*\
   !*** D:/webCode/video/utils/httpUtils.js ***!
   \*******************************************/
@@ -10601,223 +10732,12 @@ function sendHttpRequest(command, argument, sucallback, failcallback) {
   var projectId = uni.getStorageSync('loginInfo').defaultPrjId || '';
   var jsonData = JSON.stringify(argument);
   var domainUrl = _config.default.serveData.apiServerUrl;
+
   switch (command) {
     case '1001':
       domainUrl += '/appLogin/captcha'; // 获取验证码
-      break;
-    case '1002':
-      domainUrl += '/appLogin/login'; // app登录
-      break;
-    case '1003':
-      domainUrl += '/appUser/changePassword'; // 修改密码
-      break;
-    case '1004':
-      domainUrl += '/appLogout'; // 退出登录
-      break;
-    case '1005':
-      domainUrl += '/appUser/getUserInfo'; // 获取个人信息
-      break;
-    case '1006':
-      domainUrl += '/appUser/updateUserInfo'; // 修改个人信息
-      break;
-    case '1007':
-      domainUrl += '/appUser/getVisualList'; // 获取视角列表
-      break;
-    case '2001':
-      domainUrl += '/appSaleView/toDeal/findFollowUpList'; // 获取待办数据
-      break;
-    case '2002':
-      domainUrl += '/appSaleView/customer/getCustomerFollowUps'; // 查询跟进列表-客户信息
-      break;
-    case '2003':
-      domainUrl += '/appSaleView/houseResource/findRoomList'; // 查询房源列表
-      break;
-    case '2004':
-      domainUrl += '/appSaleView/houseResource/getBuildingByPrj'; // 查询房源项目楼栋
-      break;
-    case '2005':
-      domainUrl += '/appSaleView/houseResource/getUnitsByBuilding'; // 查询房源项目单元
-      break;
-    case '2006':
-      domainUrl += '/appSaleView/houseResource/findRoomDetailInfo'; // 查询房源详情
-      break;
-    case '2007':
-      domainUrl += '/appSaleView/houseResource/lockRoomBySale'; // 销控该房源
-      break;
-    case '2008':
-      domainUrl += '/appSaleView/houseResource/getDiscountList'; // 获取折扣列表
-      break;
-    case '2009':
-      domainUrl += '/appSaleView/houseResource/getPayMethodList'; // 获取付款方式列表
-      break;
-    case '2010':
-      domainUrl += '/appSaleView/houseResource/createBuyPlan'; // 生成置业计划
-      break;
-    case '2011':
-      domainUrl += '/appSaleView/customer/conditionList'; // 获取客户列表-筛选条件
-      break;
-    case '2012':
-      domainUrl += '/appSaleView/customer/getCustomerList'; // 获取客户列表
-      break;
-    case '2013':
-      domainUrl += '/appSaleView/customer/listCustomerGroup'; // 获取客户分组列表
-      break;
-    case '2014':
-      domainUrl += '/appSaleView/customer/addGroup'; // 分组管理-添加分组
-      break;
-    case '2015':
-      domainUrl += '/appSaleView/customer/updateGroup'; // 分组管理-修改分组
-      break;
-    case '2016':
-      domainUrl += '/appSaleView/customer/rmGroup'; // 分组管理-删除分组
-      break;
-    case '2017':
-      domainUrl += '/appSaleView/customer/setGroupForCustomer'; // 分组管理-为客户设置分组
-      break;
-    case '2018':
-      domainUrl += '/appSaleView/houseResource/calculateMonoAndTotalPrice'; // 计算折后单价和折后总价
-      break;
-    case '2019':
-      domainUrl += '/appSaleView/houseResource/getAllLoanRateList'; // 根据类型获取贷款利率
-      break;
-    case '2020':
-      domainUrl += '/appSaleView/customer/customerRegister'; // 客户登记
-      break;
-    case '2021':
-      domainUrl += '/appSaleView/customer/getCusRegisterCondition'; // 客户登记-获取下拉框列表
-      break;
-    case '2022':
-      domainUrl += '/appSaleView/customer/getCustomerDetail'; // 客户详情
-      break;
-    case '2023':
-      domainUrl += '/appSaleView/customer/updateCustomerInfo'; // 客户详情-保存
-      break;
-    case '2024':
-      domainUrl += '/appSaleView/customer/toAddFollowUpLog'; // 获取新增跟进下拉框列表
-      break;
-    case '2025':
-      domainUrl += '/appSaleView/customer/addFollowUpLog'; // 新增跟进-保存
-      break;
-    case '2026':
-      domainUrl += '/appSaleView/toDeal/followUpLogTag'; // 待办-跟进主界面
-      break;
-    case '2027':
-      domainUrl += '/appSaleView/toDeal/overdueUrgingTag'; // 待办-催办主界面
-      break;
-    case '2028':
-      domainUrl += '/appSaleView/toDeal/getToDealPage'; // 获取跟进列表
-      break;
-    case '2029':
-      domainUrl += '/appSaleView/toDeal/getToDealPage'; // 获取催办列表
-      break;
-    case '2030':
-      domainUrl += '/appSaleView/toDeal/pageSubOverdue'; // 获取逾期未认购列表
-      break;
-    case '2031':
-      domainUrl += '/appSaleView/toDeal/pageSignOverdue'; // 获取逾期未签约列表
-      break;
-    case '2033':
-      domainUrl += '/appSaleView/more/getPrivateAchievement'; // 获取业绩
-      break;
-    case '2034':
-      domainUrl += '/appSaleView/customer/grabPublicCustomer'; // 客户详情-抢客户
-      break;
-    case '2035':
-      domainUrl += '/appSaleView/toDeal/getSuperiorNode'; // 申请延期-获取审核单位
-      break;
-    case '2036':
-      domainUrl += '/appSaleView/toDeal/getVisibleReviewer'; // 申请延期-获取审核人
-      break;
-    case '2037':
-      domainUrl += '/appSaleView/toDeal/getDelayDate'; // 申请延期-获取失效日期
-      break;
-    case '2038':
-      domainUrl += '/appSaleView/toDeal/application4Extension'; // 申请延期-立即申请
-      break;
-    case '2039':
-      domainUrl += '/appSaleView/more/getProjectList'; // 切换项目-获取列表
-      break;
-    case '2040':
-      domainUrl += '/appSaleView/more/switchProject'; // 切换项目-确认切换
-      break;
-    case '2041':
-      domainUrl += '/appSaleView/houseResource/getLoanAmountMax'; // 获取贷款最大限额
-      break;
-    case '2042':
-      domainUrl += '/appSaleView/houseResource/getLatestLprRate'; // 获取lpr列表
-      break;
-    case '2043':
-      domainUrl += '/appSaleView/more/switchPrj'; // 切换项目成功后-调用接口-将id传给后台
-      break;
-    case '2044':
-      domainUrl += '/appSaleView/customer/getQuestionCustomerList'; // 获取问卷调查客户列表
-      break;
-    case '2045':
-      domainUrl += '/appSaleView/houseResource/getDetailByPaymentId'; // 根据付款方式id获取预付款信息
-      break;
-    case '2046':
-      domainUrl += '/appSaleView/customer/invalidCustomer'; // 置为无效客户
-      break;
-    case '2047':
-      domainUrl += '/appSaleView/customer/customerRegisterById'; // 登记到访
-      break;
-    case '2048':
-      domainUrl += '/appSaleView/houseResource/applyLockRoom'; // 房源-申请锁房
-      break;
-    case '3001':
-      domainUrl += '/SpecialApply/selectSpecialApply'; // 获取审批列表
-      break;
-    case '3002':
-      domainUrl += '/SpecialApply/approval'; // 提交审批
-      break;
-    case '3003':
-      domainUrl += '/appChiefView/newsFlash/getCompanyList'; // 获取公司列表
-      break;
-    case '3004':
-      domainUrl += '/appChiefView/newsFlash/getProjectList'; // 获取项目列表
-      break;
-    case '3005':
-      domainUrl += '/appChiefView/newsFlash/getNewsFlash'; // 获取快报列表
-      break;
-    case '3006':
-      domainUrl += '/appChiefView/newsFlash/getTransactionStatistic'; // 获取成交列表
-      break;
-    case '3007':
-      domainUrl += '/appChiefView/newsFlash/getRefundsStatistic'; // 获取回款列表
-      break;
-    case '3008':
-      domainUrl += '/appChiefView/newsFlash/getRoomResourcesStatistic'; // 获取房源列表
-      break;
-    case '3009':
-      domainUrl += '/appChiefView/newsFlash/getVisitedStatistic'; // 获取来电来访列表
-      break;
-    case '3010':
-      domainUrl += '/appChiefView/newsFlash/getTransRateStatistic'; // 获取转化率列表
-      break;
-    case '3011':
-      domainUrl += '/appChiefView/newsFlash/getOverdueStatistic'; // 获取逾期情况列表
-      break;
-    case '4001':
-      domainUrl += '/appManageView/getCaseStatistics'; // 获取案场统计-获取统计数据
-      break;
-    case '4002':
-      domainUrl += '/appSaleView/houseResource/findRoomListForManageView'; // 销售经理-房源列表
-      break;
-    case '4003':
-      domainUrl += '/appManageView/getRoomStatistics'; // 销售经理-房源统计
-      break;
-    case '4004':
-      domainUrl += '/appManageView/getCustomerStatistics'; // 销售经理-客户分析
-      break;
-    case '5001':
-      domainUrl += '/questionnaire/template/getQuestionnaireBySalesMan'; // 获取销售问卷列表
-      break;
-    case '5002':
-      domainUrl += '/questionnaire/template/getQuestionnaireInfoById'; // 获取问卷调查列表
-      break;
-    case '5003':
-      domainUrl += '/questionnaire/template/addCustomerAnswer'; // 生成客户问卷
       break;}
+
 
   uni.request({
     url: domainUrl,
@@ -10825,8 +10745,7 @@ function sendHttpRequest(command, argument, sucallback, failcallback) {
     header: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "token": token,
-      "projectId": projectId },
+      "token": token },
 
     data: jsonData,
     success: function success(res) {
@@ -10850,7 +10769,8 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 62 */
+
+/***/ 62:
 /*!****************************************!*\
   !*** D:/webCode/video/utils/config.js ***!
   \****************************************/
@@ -10875,7 +10795,8 @@ module.exports = {
   serveData: serveData };
 
 /***/ }),
-/* 63 */
+
+/***/ 63:
 /*!***************************************!*\
   !*** D:/webCode/video/utils/tools.js ***!
   \***************************************/
@@ -10948,34 +10869,8 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */
+
+/***/ 91:
 /*!**********************************************!*\
   !*** D:/webCode/video/assets/img/avatar.jpg ***!
   \**********************************************/
@@ -10985,5 +10880,6 @@ module.exports = {
 module.exports = "/assets/img/avatar.jpg";
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

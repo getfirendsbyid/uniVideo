@@ -13,17 +13,42 @@
 					<u-time-line>
 						<u-time-line-item nodeTop="2">
 							<!-- 此处自定义了左边内容，用一个图标替代 -->
-							<template v-slot:node>
-								<view class="u-node" style="background: #19be6b;">
-									<!-- 此处为uView的icon组件 -->
-									<u-icon name="pushpin-fill" color="#fff" :size="24"></u-icon>
-								</view>
-							</template>
+							
 							<template v-slot:content>
-								<view>
-									<view class="u-order-title">待取件</view>
-									<view class="u-order-desc">[自提柜]您的快件已放在楼下侧门，直走前方53.6米，左拐约10步，再右拐直走，见一红灯笼停下，叩门三下，喊“芝麻开门”即可。</view>
-									<view class="u-order-time">2019-05-08 12:12</view>
+								<view class="animeList">
+									<image class="cover" src="../../../static/logo.png"></image>
+									<view class="detail">
+										<view class="name">name</view>
+										<view class="episodes">第六集</view>
+									</view>
+								</view>
+								<view class="animeList">
+									<image class="cover" src="../../../static/logo.png"></image>
+									<view class="detail">
+										<view class="name">name</view>
+										<view class="episodes">第六集</view>
+									</view>
+								</view>
+								<view class="animeList">
+									<image class="cover" src="../../../static/logo.png"></image>
+									<view class="detail">
+										<view class="name">name</view>
+										<view class="episodes">第六集</view>
+									</view>
+								</view>
+								<view class="animeList">
+									<image class="cover" src="../../../static/logo.png"></image>
+									<view class="detail">
+										<view class="name">name</view>
+										<view class="episodes">第六集</view>
+									</view>
+								</view>
+								<view class="animeList">
+									<image class="cover" src="../../../static/logo.png"></image>
+									<view class="detail">
+										<view class="name">name</view>
+										<view class="episodes">第六集</view>
+									</view>
 								</view>
 							</template>
 						</u-time-line-item>
@@ -57,22 +82,6 @@
 						name: '十年'
 					}, {
 						name: '青春'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
-					}, {
-						name: '之约'
 					}, {
 						name: '之约'
 					}, {
@@ -143,7 +152,7 @@
 			},
 			// scroll-view到底部加载更多
 			onreachBottom() {
-				
+					
 			}
 		}
 	};
@@ -175,5 +184,32 @@
 	.u-order-time {
 		color: rgb(200, 200, 200);
 		font-size: 26rpx;
+	}
+	
+	.animeList{
+		margin-top: 24rpx;
+		margin: 12rpx;
+		height: 96rpx;
+		display: flex;
+		justify-content:flex-start;
+		.cover{
+			height: 72rpx;
+			width: 72rpx;
+		}
+		.detail{
+			height: 72rpx;
+			padding-left: 24rpx;
+			display: flex;
+			flex-direction: column;
+			.name{
+				height: 48rpx;
+				font-size: 38rpx;
+				font-weight: 500;
+			}
+			.episodes{
+				color: #ff6991;
+				height: 48rpx;
+			}
+		}
 	}
 </style>

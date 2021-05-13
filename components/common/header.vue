@@ -11,7 +11,7 @@
 					</u-col>
 					<u-col span="12">
 						<!-- search -->
-						<u-search placeholder="" :shape="shape" :show-action="showAction" v-model="keyword">
+						<u-search placeholder="" :shape="shape" :show-action="showAction" @click="goPage()" v-model="keyword">
 						</u-search>
 					</u-col>
 					<u-col span="2">
@@ -45,8 +45,12 @@
 					// 渐变色
 					backgroundImage: 'linear-gradient(45deg, rgb(255, 105, 145), rgb(255, 105, 145))'
 				},
-				
 			};
+		},
+		methods:{
+			goPage:function(){
+				
+			}
 		}
 	}
 </script>

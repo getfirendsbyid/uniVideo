@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
-		<u-row gutter="16" justify="center">
-			<u-col span="6" v-for="(item, index) in list" :key="index">
+		<u-row  justify="center">
+			<u-col span="4" v-for="(item, index) in list" :key="index">
 				<u-lazy-load :image="item.src" border-radius="8"></u-lazy-load>
 				<text class="demo-layout u-line-2">{{item.title}}</text>
 			</u-col>

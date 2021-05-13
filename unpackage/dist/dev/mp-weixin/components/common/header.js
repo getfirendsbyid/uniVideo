@@ -214,7 +214,7 @@ var _avatar = _interopRequireDefault(__webpack_require__(/*! @/assets/img/avatar
 //
 //
 var _default = { name: "header", data: function data() {return { showAction: false, isBack: false, shape: "square", slot: "right", logoUrl: _avatar.default, avatarUrl: _avatar.default, background: { // 渐变色
-        backgroundImage: 'linear-gradient(45deg, rgb(255, 105, 145), rgb(255, 105, 145))' } };} };exports.default = _default;
+        backgroundImage: 'linear-gradient(45deg, rgb(255, 105, 145), rgb(255, 105, 145))' } };}, methods: { goPage: function goPage() {} } };exports.default = _default;
 
 /***/ }),
 
