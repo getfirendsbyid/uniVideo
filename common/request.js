@@ -1,38 +1,28 @@
-import urlConfig from './config.js'
-import Utils from './util.js'
-
-const request = {}
-const headers = {}
-    
-request.globalRequest = (url, method, data , auth) => {
-
-if(auth==1){
-	const token = uni.getStorageSync('token');
-	if(token == null){
-		console.log("token 不存在")
-		return ;
-	}
-	headers['Authorization'] = token;
+import host from './config.js'
+const header = {}
+const request = (url='',method='POST',data={}) => {
+    header['content-type'] = "application/x-www-form-urlencoded";
+    return new Promise((resolve,reject) => {
+        uni.request({
+            method:'post',
+            url:host + url,
+            data:data,
+            header:header,
+            dataType:'json'
+        }).then((response) => {
+            let [error,res] = response;
+            // 登录过期
+            if(res.code == 10086){
+                uni.showToast({
+                    title:'登录过期,请重新登录',
+                    duration:2000
+                });
+            };            
+            resolve(res.data);
+        }).catch((error) => {
+            let [err,res] = error;
+            reject(err);
+        });
+    });
 }
-
-   
-return uni.request({
-        url: urlConfig + url,
-        method,
-        data: data,
-        dataType: 'json',
-        header: headers
-    }).then(res => {
-		if(res.code=401){
-			
-		}
-		return res;
-    }).catch(res => {
-　　　　　　console.log(res)
-	}).final(res=>{
-		　console.log(res)
-		//异步操作完成
-	})
- } 
- 
- export default request
+export default request

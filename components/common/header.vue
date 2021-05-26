@@ -2,7 +2,7 @@
 	<view>
 		<u-navbar :is-back="isBack" :background="background" :slot="slot">
 			<view class="slot-wrap">
-				<u-search placeholder="" :shape="shape" :show-action="showAction" @click="goPage" v-model="keyword">
+				<u-search :disabled="disabled" placeholder="" :shape="shape" :show-action="showAction" @click="goPage" v-model="keyword">
 				</u-search>
 			</view>
 		</u-navbar>
@@ -16,6 +16,7 @@
 
 		data() {
 			return {
+				disabled:true,
 				showAction: false,
 				isBack: false,
 				shape: "square",
@@ -27,6 +28,18 @@
 					backgroundImage: 'linear-gradient(45deg, rgb(255, 105, 145), rgb(255, 105, 145))'
 				},
 			};
+		},
+		onLoad(option) {
+			
+		
+		},
+		created() {
+			let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+			let curRoute = routes[routes.length - 1].route //获取当前页面路由
+			if(curRoute=="pages/search/search"){
+				this.disabled = false
+			}
+			console.log(curRoute);
 		},
 		methods: {
 			goPage: function() {

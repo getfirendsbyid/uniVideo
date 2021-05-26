@@ -1,11 +1,7 @@
 {
   "usingComponents": {
     "u-navbar": "/node-modules/uview-ui/components/u-navbar/u-navbar",
-    "u-row": "/node-modules/uview-ui/components/u-row/u-row",
-    "u-col": "/node-modules/uview-ui/components/u-col/u-col",
-    "u-image": "/node-modules/uview-ui/components/u-image/u-image",
-    "u-search": "/node-modules/uview-ui/components/u-search/u-search",
-    "u-avatar": "/node-modules/uview-ui/components/u-avatar/u-avatar"
+    "u-search": "/node-modules/uview-ui/components/u-search/u-search"
   },
   "component": true
 }

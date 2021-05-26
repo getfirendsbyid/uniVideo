@@ -13,12 +13,6 @@
     "miniprogram": {
       "list": [
         {
-          "name": "待办",
-          "pathName": "pages/salemanVisual/needDeal/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "登录",
           "pathName": "pages/login",
           "query": "",

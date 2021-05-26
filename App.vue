@@ -86,21 +86,7 @@
 		}
 	}
 
-	// 底部返回按钮
-	.footer {
-		width: 560rpx;
-		height: 90rpx;
-		line-height: 90rpx;
-		font-size: 32rpx;
-		text-align: center;
-		position: fixed;
-		bottom: 40rpx;
-		left: 95rpx;
-		color: #e7e7e7;
-		background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
-		z-index: 2;
-		border-radius: 44rpx;
-	}
+	
 
 	// 底部两个按钮
 	.footer_flex {

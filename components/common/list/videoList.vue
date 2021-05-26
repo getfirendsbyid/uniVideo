@@ -1,10 +1,9 @@
 <template>
 	<view class="wrap">
-		<view >系列推荐</view>
 		<u-row  justify="center">
 			<u-col span="4" v-for="(item, index) in list" :key="index">
 				<u-lazy-load :image="item.src" border-radius="8"></u-lazy-load>
-				<text class="demo-layout u-line-2">{{item.title}}</text>
+				<text class="title u-line-2">{{item.title}}</text>
 			</u-col>
 		</u-row>
 	</view>
@@ -12,116 +11,12 @@
 
 <script>
 	export default {
+		props:['videoData'],
 		data() {
 			return {
 				loadStatus: 'loadmore',
 				flowList: [],
-				list: [{
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},
-					{
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},
-					{
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},
-					{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},{
-						// 这里图片不存在，会加载失败，显示错误的占位图
-						src: "https://i1.wp.com/www.5dm.tv/wp-content/uploads/2020/09/2020092616144684-520x293.png",
-						title: "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-					},
-				]
+				list: []
 			}
 		},
 		onLoad() {
@@ -151,30 +46,22 @@
 			clear() {
 				this.$refs.uWaterfall.clear();
 			}
-		}
+		},
+		computed: {
+		    change (){
+		       this.list = this.videoData
+			   console.log(this.list)
+		    }
+		  },
 	}
 </script>
 
 
 <style lang="scss" scoped>
-	.wrap {
-		padding-left: 24rpx;
-		padding-right: 24rpx;
-		.u-lazy-item {
-			border-radius: 8rpx;
-		}
-		.demo-layout {
-			height: 80rpx;
-			border-radius: 8rpx;
-		}
-		.u-row {
-			border-radius: 3rpx;
-		}
-		.u-col {
-			border-radius: 3rpx;
-		}
-		.tip{
-			
+	.wrap{
+		.title{
+			height: 72rpx;
 		}
 	}
+	
 </style>
