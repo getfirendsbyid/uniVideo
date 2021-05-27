@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Header = function Header() {Promise.all(/*! require.ensure | components/common/header */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/header")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/header.vue */ 101));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {Promise.all(/*! require.ensure | components/common/footer */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/footer")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 109));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -146,8 +146,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
+var _time = _interopRequireDefault(__webpack_require__(/*! @/api/time.js */ 300));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Header = function Header() {Promise.all(/*! require.ensure | components/common/header */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/header")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/header.vue */ 100));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {Promise.all(/*! require.ensure | components/common/footer */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/footer")]).then((function () {return resolve(__webpack_require__(/*! @/components/common/footer.vue */ 108));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TimeList = function TimeList() {__webpack_require__.e(/*! require.ensure | components/common/list/timeList */ "components/common/list/timeList").then((function () {return resolve(__webpack_require__(/*! @/components/common/list/timeList.vue */ 140));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
+
   components: {
     Header: Header,
     TimeList: TimeList,
@@ -156,6 +157,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
+      timeListData: "",
       isScroll: true,
       title: "时刻表",
       list: [
@@ -193,7 +195,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.current = current;
     },
     // scroll-view到底部加载更多
-    onreachBottom: function onreachBottom() {} } };exports.default = _default;
+    onreachBottom: function onreachBottom() {},
+    _getBanner: function _getBanner() {var _this = this;
+      _time.default.banner().then(function (res) {
+        _this.banner = res.data;
+      });
+    },
+    _getTimeList: function _getTimeList() {var _this2 = this;
+      _time.default.getTimeList().then(function (res) {
+        _this2.timeListData = res.data;
+        console.log(res.data);
+      });
+    } },
+
+
+  created: function created() {
+    this._getTimeList();
+  } };exports.default = _default;
 
 /***/ })
 

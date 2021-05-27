@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap">
-		<u-swiper :list="list" :effect3d="true" :interval="interval" :current="current" :mode="mode" :title="title" :circular="false"></u-swiper>
+		<u-swiper :list="list" circular="true" :effect3d="true" :interval="interval" :current="current" :mode="mode" :title="title" :circular="false"></u-swiper>
 	</view>
 </template>
 

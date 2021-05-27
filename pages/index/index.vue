@@ -10,9 +10,7 @@
 			<view class="tip">{{series.series}}</view>
 			<videoList :videoData="series.data"></videoList>
 		</view>
-		<view>
-			<backTop></backTop>
-		</view>
+		
 		<view>
 			<Footer></Footer>
 		</view>

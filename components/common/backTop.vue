@@ -1,10 +1,10 @@
 <template>
 	<view class="wrap">
-		<u-back-top :scroll-top="scrollTop" :custom-style="iconStyle" :model="model" top="600" z-index="9"></u-back-top>
-	<text>滑动页面，返回顶部按钮将出现在右下角</text>
-			<u-back-top :scrollTop="scrollTop" :mode="mode" :icon-style="iconStyle"></u-back-top>
+		<text>滑动页面，返回顶部按钮将出现在右下角</text>
+		<u-back-top   top="600" :scroll-top="scrollTop"></u-back-top>
 	</view>
 </template>
+
 
 <script>
 	export default {

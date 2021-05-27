@@ -1,1 +1,1 @@
-<view><view><header vue-id="9510b446-1" bind:__l="__l"></header></view><view><time-list vue-id="9510b446-2" bind:__l="__l"></time-list></view><view><footer vue-id="9510b446-3" bind:__l="__l"></footer></view></view>
+<view><view><header vue-id="9510b446-1" bind:__l="__l"></header></view><view><time-list vue-id="9510b446-2" videoData="{{timeListData}}" bind:__l="__l"></time-list></view><view><footer vue-id="9510b446-3" bind:__l="__l"></footer></view></view>

@@ -4,7 +4,7 @@
       <Header></Header>
     </view>
     <view>
-      <TimeList></TimeList>
+      <TimeList :videoData="timeListData"></TimeList>
     </view>
     <view>
       <Footer></Footer>
@@ -16,8 +16,9 @@
 import Header from "@/components/common/header.vue";
 import Footer from "@/components/common/footer.vue";
 import TimeList from "@/components/common/list/timeList.vue";
-
+import api from '@/api/time.js'
 export default {
+	
   components: {
     Header,
     TimeList,
@@ -26,6 +27,7 @@ export default {
 
   data() {
     return {
+	  timeListData:"",
       isScroll: true,
       title: "时刻表",
       list: [
@@ -64,6 +66,21 @@ export default {
     },
     // scroll-view到底部加载更多
     onreachBottom() {},
+	_getBanner(){
+		api.banner().then(res => {
+			this.banner = res.data
+		});
+	},
+	_getTimeList(){
+		api.getTimeList().then(res => {
+			this.timeListData = res.data
+			console.log(res.data)
+		});
+	}
+  },
+ 
+  created:function() {
+  	this._getTimeList();
   },
 };
 </script>
