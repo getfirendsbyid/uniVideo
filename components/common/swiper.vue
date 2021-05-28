@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap">
-		<u-swiper :list="list" circular="true" :effect3d="true" :interval="interval" :current="current" :mode="mode" :title="title" :circular="false"></u-swiper>
+		<u-swiper  @click="goPage" :list="list" circular="true" :effect3d="true" :interval="interval" :current="current" :mode="mode" :title="title" :circular="false"></u-swiper>
 	</view>
 </template>
 
@@ -19,7 +19,11 @@
 		},
 		
 		methods: {
-			
+			goPage: function() {
+				uni.navigateTo({
+					url: "/pages/detail",
+				});
+			}
 		},
 		computed: {
 		    change (){

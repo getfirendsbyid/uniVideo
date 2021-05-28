@@ -5,7 +5,6 @@
     "header": "/components/common/header",
     "swiper": "/components/common/swiper",
     "footer": "/components/common/footer",
-    "video-list": "/components/common/list/videoList",
-    "back-top": "/components/common/backTop"
+    "video-list": "/components/common/list/videoList"
   }
 }

@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/time/index",
+    "pages/detail",
     "pages/login",
     "pages/classify/index",
     "pages/user/index",
@@ -15,6 +16,5 @@
     "navigationBarBackgroundColor": "#fb7299",
     "backgroundColor": "#e7e7e7"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

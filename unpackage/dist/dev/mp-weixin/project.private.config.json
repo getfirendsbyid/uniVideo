@@ -47,6 +47,12 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/detail",
+          "pathName": "pages/detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

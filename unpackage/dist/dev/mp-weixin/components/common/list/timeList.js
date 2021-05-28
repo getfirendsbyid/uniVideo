@@ -80,13 +80,13 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 245))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 238))
     },
     uTimeLine: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-time-line/u-time-line */ "node-modules/uview-ui/components/u-time-line/u-time-line").then(__webpack_require__.bind(null, /*! uview-ui/components/u-time-line/u-time-line.vue */ 252))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-time-line/u-time-line */ "node-modules/uview-ui/components/u-time-line/u-time-line").then(__webpack_require__.bind(null, /*! uview-ui/components/u-time-line/u-time-line.vue */ 245))
     },
     uTimeLineItem: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-time-line-item/u-time-line-item */ "node-modules/uview-ui/components/u-time-line-item/u-time-line-item").then(__webpack_require__.bind(null, /*! uview-ui/components/u-time-line-item/u-time-line-item.vue */ 259))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-time-line-item/u-time-line-item */ "node-modules/uview-ui/components/u-time-line-item/u-time-line-item").then(__webpack_require__.bind(null, /*! uview-ui/components/u-time-line-item/u-time-line-item.vue */ 252))
     }
   }
 } catch (e) {

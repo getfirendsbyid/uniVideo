@@ -16,6 +16,7 @@
 
 		data() {
 			return {
+				keyword:"",
 				disabled:true,
 				showAction: false,
 				isBack: false,

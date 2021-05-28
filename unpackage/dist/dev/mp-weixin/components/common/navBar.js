@@ -137,9 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -156,24 +154,26 @@ var _default =
 
   data: function data() {
     return {
+      title: "124",
       isBack: true,
       titleColor: "#fff",
       isFixed: true,
       titleSize: 30,
       backIconColor: "#fff",
-      list: [{
-        name: '十年' },
-      {
-        name: '青春' },
-      {
-        name: '之约' }],
+      prevPage: "" };
 
-      // 因为内部的滑动机制限制，请将tabs组件和swiper组件的current用不同变量赋值
-      current: 0, // tabs组件的current值，表示当前活动的tab选项
-      swiperCurrent: 0 // swiper组件的current值，表示当前那个swiper-item是活动的
-    };
+
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    goBack: function goBack() {
+      var pages = getCurrentPages();
+      this.prevPage = pages[pages.length - 2];
+      console.log(pages);
+      uni.navigateTo({
+        url: this.prevPage });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

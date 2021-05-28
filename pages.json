@@ -19,6 +19,13 @@
 			}
 		},
 		{
+			"path": "pages/detail",
+			"style": {
+				"navigationBarTitleText": "时刻表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/login",
 			"style": {
 				"navigationBarTitleText": "登录",
