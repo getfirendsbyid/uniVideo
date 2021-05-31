@@ -1,8 +1,7 @@
 <template>
-	<view>
-		<view>
-			<Header></Header>
-		</view>
+	<view class="app">
+		<Header></Header>
+		
 		<view >
 			<Tag :tag="tagData"></Tag>
 		</view>

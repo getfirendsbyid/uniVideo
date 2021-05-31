@@ -1,12 +1,8 @@
 <template>
-	<view class="navBar">
-		<u-navbar :is-back="isBack"  :is-fixed="isFixed" border-bottom="false"
-			:back-icon-color="backIconColor" title-size="titleSize" :title-color="titleColor" :titleBold="titleBold"
-			:title="title" :background="background">
-
-		</u-navbar>
-
-	</view>
+	<u-navbar class="navBar" :is-back="isBack" :is-fixed="isFixed" :border-bottom="false"
+		:back-icon-color="backIconColor" title-size="titleSize" :title-color="titleColor" :titleBold="titleBold"
+		:title="title" :background="background">
+	</u-navbar>
 </template>
 <script>
 	export default {
@@ -15,14 +11,17 @@
 		},
 		data() {
 			return {
-				title:"124",
+				titleBold: true,
+				background: {
+					backgroundColor: '#fb7299',
+				},
 				isBack: true,
 				titleColor: "#fff",
 				isFixed: true,
 				titleSize: 30,
 				backIconColor: "#fff",
 				prevPage: "",
-			
+
 			};
 		},
 		methods: {
@@ -39,9 +38,7 @@
 </script>
 
 <style scoped lang="scss">
-	.navBar {
-		background-color: $uni-theme;
-	}
+	
 
 	.slot-wrap {
 		display: flex;

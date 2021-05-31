@@ -1,5 +1,5 @@
 <template>
-	<view class="home">
+	<view class="app">
 		<view>
 			<u-tabs-swiper ref="uTabs" :list="timeData" gutter="48" :active-color="activeColor" :current="current"
 				:show-bar="showBar" @change="tabsChange" :is-scroll="true" swiperWidth="750"></u-tabs-swiper>

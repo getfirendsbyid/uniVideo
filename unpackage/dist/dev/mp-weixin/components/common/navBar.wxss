@@ -45,9 +45,6 @@
   background-color: #fff;
   padding: 20rpx 60rpx 0;
 }
-.navBar.data-v-0c91fd2e {
-  background-color: #fb7299;
-}
 .slot-wrap.data-v-0c91fd2e {
   display: -webkit-box;
   display: -webkit-flex;

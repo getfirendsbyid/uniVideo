@@ -1,12 +1,14 @@
 <template>
-	<view>
-		<u-navbar :is-back="isBack" :background="background" :slot="slot">
-			<view class="slot-wrap">
-				<u-search :disabled="disabled" placeholder="" :shape="shape" :show-action="showAction" @click="goPage" v-model="keyword">
-				</u-search>
-			</view>
-		</u-navbar>
-	</view>
+	<u-navbar :is-back="isBack" :background="background" :slot="slot">
+		<view class="slot-wrap">
+			<u-search :disabled="disabled" placeholder="" :shape="shape" :show-action="showAction" @click="goPage" v-model="keyword">
+			</u-search>
+			<u-avatar  v-if="isShow" class="avator" size="mini" :src="logoUrl" mode="circle"></u-avatar>
+		</view>
+	
+	</u-navbar>
+	
+
 </template>
 
 <script>
@@ -28,6 +30,7 @@
 					// 渐变色
 					backgroundImage: 'linear-gradient(45deg, rgb(255, 105, 145), rgb(255, 105, 145))'
 				},
+				isShow:true
 			};
 		},
 		onLoad(option) {
@@ -39,12 +42,13 @@
 			let curRoute = routes[routes.length - 1].route //获取当前页面路由
 			if(curRoute=="pages/search/search"){
 				this.disabled = false
+				this.isShow = false
 			}
 			console.log(curRoute);
 		},
 		methods: {
 			goPage: function() {
-				uni.reLaunch({
+				uni.navigateTo({
 					url: "/pages/search/search",
 				});
 			}
@@ -66,5 +70,9 @@
 		/* flex: 1; */
 		/* 如果您想让slot内容与导航栏左右有空隙 */
 		/* padding: 0 30rpx; */
+	}
+	.avator{
+		width: 214rpx;
+		margin-left: 24rpx;
 	}
 </style>

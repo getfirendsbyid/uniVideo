@@ -30,7 +30,8 @@
 				<u-row class="chapterTab" v-for="(chapterItem,index) in animeInfo.chapter[this.current].data"
 					 >
 					<u-col class="chapterItem" span="3">
-						<view class="chaperName">{{chapterItem.EpName}}</view>
+					
+						<view class="chaperName">{{chapterItem.title}}</view>
 					</u-col>
 
 				</u-row>

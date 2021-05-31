@@ -1,19 +1,15 @@
 <template>
 	<view class="app">
-		<view>
-			<Header></Header>
-		</view>
-		<view class="swiper">
-			<Swiper :banner="banner"></Swiper>
-		</view>
+		<Header></Header>
+		<Swiper class="swiper" :banner="banner"></Swiper>
+		
 		<view class="videoList" v-for="series in videoData">
 			<view class="tip">{{series.series}}</view>
 			<videoList :videoData="series.data"></videoList>
 		</view>
 		
-		<view>
-			<Footer></Footer>
-		</view>
+	
+		<Footer></Footer>
 	</view>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
 		<u-row  justify="center">
-			<u-col span="4" v-for="(item, index) in list" :key="index">
+			<u-col class="video" span="4" v-for="(item, index) in list" :key="index">
 				<u-lazy-load :image="item.src" border-radius="8"></u-lazy-load>
 				<text class="title u-line-2">{{item.title}}</text>
 			</u-col>
@@ -18,6 +18,9 @@
 				flowList: [],
 				list: []
 			}
+		},
+		created(){
+			    this.list = this.videoData
 		},
 		onLoad() {
 			this.addRandomData();
@@ -47,12 +50,7 @@
 				this.$refs.uWaterfall.clear();
 			}
 		},
-		computed: {
-		    change (){
-		       this.list = this.videoData
-			   console.log(this.list)
-		    }
-		  },
+		
 	}
 </script>
 
@@ -61,6 +59,9 @@
 	.wrap{
 		.title{
 			height: 72rpx;
+		}
+		.video{
+			margin-bottom: 12rpx;
 		}
 	}
 	

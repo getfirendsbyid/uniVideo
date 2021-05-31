@@ -67,4 +67,8 @@
   /* 如果您想让slot内容与导航栏左右有空隙 */
   /* padding: 0 30rpx; */
 }
+.avator.data-v-18fea986 {
+  width: 214rpx;
+  margin-left: 24rpx;
+}
 
